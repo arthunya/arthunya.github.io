@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arthunya Kanoklertwongse — AI Researcher & Financial Intelligence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F8F6F1;
+  --surface: #FFFFFF;
+  --border: rgba(0,0,0,0.08);
+  --text: #1A1814;
+  --muted: #6B6760;
+  --accent: #1B4F72;
+  --accent2: #1D9E75;
+  --warn: #BA7517;
+  --danger: #A32D2D;
+  --serif: 'DM Serif Display', serif;
+  --sans: 'DM Sans', sans-serif;
+  --mono: 'DM Mono', monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);font-size:15px;line-height:1.6}
+
+nav{
+  position:sticky;top:0;z-index:100;background:rgba(248,246,241,0.92);
+  backdrop-filter:blur(12px);border-bottom:1px solid var(--border);
+  padding:0 max(2rem, calc((100% - 900px)/2));
+  display:flex;align-items:center;justify-content:space-between;height:56px;
+}
+.nav-name{font-family:var(--serif);font-size:16px;letter-spacing:-0.02em}
+.nav-links{display:flex;gap:1.5rem}
+.nav-links a{font-size:13px;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+
+main{max-width:900px;margin:0 auto;padding:0 2rem 6rem}
+
+.hero{padding:5rem 0 4rem;display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:start}
+.hero-tag{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--accent);text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:8px}
+.hero-tag::before{content:'';width:24px;height:1px;background:var(--accent)}
+h1{font-family:var(--serif);font-size:clamp(2.2rem,5vw,3.2rem);line-height:1.15;letter-spacing:-0.03em;margin-bottom:1.2rem}
+h1 em{font-style:italic;color:var(--accent)}
+.hero-desc{color:var(--muted);max-width:520px;margin-bottom:2rem;line-height:1.75}
+.hero-links{display:flex;flex-wrap:wrap;gap:8px}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:6px;font-size:13px;font-weight:500;text-decoration:none;border:1px solid var(--border);color:var(--text);background:var(--surface);transition:all .2s;cursor:pointer}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn-fill{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn-fill:hover{background:#153e5a;color:#fff;border-color:#153e5a}
+.hero-stats{display:flex;flex-direction:column;gap:16px;padding:2rem;background:var(--surface);border:1px solid var(--border);border-radius:12px;min-width:200px}
+.stat-num{font-family:var(--serif);font-size:2.4rem;letter-spacing:-0.04em;line-height:1}
+.stat-label{font-size:11px;color:var(--muted);margin-top:2px}
+
+.section{margin-bottom:5rem}
+.section-head{display:flex;align-items:center;gap:12px;margin-bottom:2rem}
+.section-head h2{font-family:var(--serif);font-size:1.6rem;letter-spacing:-0.02em}
+.section-head::after{content:'';flex:1;height:1px;background:var(--border)}
+
+.demo-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:1.5rem}
+.demo-header{padding:1.25rem 1.5rem;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.demo-name{font-weight:500;font-size:15px}
+.demo-doi{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:500}
+.tag-blue{background:#E6F1FB;color:#0C447C}
+.tag-green{background:#E1F5EE;color:#085041}
+.demo-body{padding:1.5rem}
+
+.slider-group{margin-bottom:1rem}
+.slider-row{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.slider-row label{font-size:12px;color:var(--muted);min-width:160px}
+.slider-row input[type=range]{flex:1;height:4px;accent-color:var(--accent)}
+.slider-row .val{font-family:var(--mono);font-size:12px;font-weight:500;min-width:52px;text-align:right}
+
+.metric-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:1rem 0}
+.metric{padding:12px;background:var(--bg);border-radius:8px;border:1px solid var(--border)}
+.metric-label{font-size:11px;color:var(--muted);margin-bottom:4px}
+.metric-val{font-family:var(--serif);font-size:1.6rem;letter-spacing:-0.03em}
+.metric-sub{font-size:10px;color:var(--muted)}
+
+.bar-list{margin-top:1rem}
+.bar-item{margin-bottom:10px}
+.bar-meta{display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px}
+.bar-meta span:first-child{color:var(--muted)}
+.bar-meta span:last-child{font-family:var(--mono);font-weight:500}
+.bar-bg{height:6px;background:var(--bg);border-radius:3px;overflow:hidden;border:1px solid var(--border)}
+.bar-fg{height:100%;border-radius:3px;transition:width .4s cubic-bezier(.4,0,.2,1)}
+
+.tier-display{display:flex;align-items:center;gap:14px;padding:14px;background:var(--bg);border-radius:8px;margin-top:1rem;border:1px solid var(--border)}
+.tier-pill{padding:4px 14px;border-radius:20px;font-size:13px;font-weight:500;font-family:var(--mono)}
+.tier-desc{font-size:12px;color:var(--muted)}
+
+.alert{padding:10px 14px;border-radius:8px;font-size:12px;margin-top:12px;border-left:3px solid}
+.alert-ok{background:#E1F5EE;border-color:#1D9E75;color:#085041}
+.alert-warn{background:#FAEEDA;border-color:#BA7517;color:#633806}
+
+.pub-list{display:flex;flex-direction:column;gap:1rem}
+.pub-item{display:grid;grid-template-columns:auto 1fr;gap:16px;padding:1.25rem;background:var(--surface);border:1px solid var(--border);border-radius:12px;align-items:start}
+.pub-year{font-family:var(--mono);font-size:11px;color:var(--muted);padding-top:2px}
+.pub-title{font-weight:500;margin-bottom:4px}
+.pub-meta{font-size:12px;color:var(--muted);margin-bottom:8px;font-family:var(--mono)}
+.pub-tags{display:flex;flex-wrap:wrap;gap:6px}
+
+.exp-list{display:flex;flex-direction:column;gap:0}
+.exp-item{display:grid;grid-template-columns:160px 1fr;gap:2rem;padding:1.5rem 0;border-bottom:1px solid var(--border)}
+.exp-item:last-child{border-bottom:none}
+.exp-date{font-family:var(--mono);font-size:11px;color:var(--muted);padding-top:3px}
+.exp-role{font-weight:500;font-size:14px;margin-bottom:2px}
+.exp-org{font-size:13px;color:var(--accent);margin-bottom:6px}
+.exp-desc{font-size:13px;color:var(--muted);line-height:1.6}
+
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px}
+.skill-chip{padding:8px 12px;background:var(--surface);border:1px solid var(--border);border-radius:8px;font-size:12px;text-align:center;color:var(--muted)}
+
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:1rem}
+.cert-card{padding:12px 14px;background:var(--surface);border:1px solid var(--border);border-radius:8px}
+.cert-issuer{font-size:10px;color:var(--accent);font-weight:500;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+.cert-name{font-size:12px;font-weight:500;line-height:1.4}
+.cert-date{font-size:11px;color:var(--muted);margin-top:2px;font-family:var(--mono)}
+
+footer{border-top:1px solid var(--border);padding:2rem 0;text-align:center;font-size:12px;color:var(--muted);max-width:900px;margin:0 auto;padding-left:2rem;padding-right:2rem}
+footer a{color:var(--accent);text-decoration:none}
+
+@media(max-width:640px){
+  .hero{grid-template-columns:1fr}
+  .hero-stats{flex-direction:row;flex-wrap:wrap;gap:12px}
+  .exp-item{grid-template-columns:1fr}
+  .exp-date{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-name">Arthunya K.</div>
+  <div class="nav-links">
+    <a href="#demos">Demos</a>
+    <a href="#research">Research</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div>
+    <div class="hero-tag">AI Researcher & Financial Intelligence</div>
+    <h1>Building AI for<br><em>national-scale</em><br>financial security</h1>
+    <p class="hero-desc">
+      Graduate researcher in AI at Westcliff University, San Francisco. 
+      Developing open-source frameworks for U.S. supply chain security (V.E.T.) 
+      and SME restaurant financial resilience (A.C.E.). 14 years of practitioner 
+      experience in financial analysis and KYC/AML compliance across Asia-Pacific, 
+      the UK, and the United States.
+    </p>
+    <div class="hero-links">
+      <a class="btn btn-fill" href="https://github.com/arthunya" target="_blank">GitHub</a>
+      <a class="btn" href="https://www.researchgate.net/profile/Arthunya-Kanoklertwongse" target="_blank">ResearchGate</a>
+      <a class="btn" href="https://www.linkedin.com/in/arthunya/" target="_blank">LinkedIn</a>
+      <a class="btn" href="mailto:arthunya@gmail.com">Contact</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div>
+      <div class="stat-num">14</div>
+      <div class="stat-label">Years financial experience</div>
+    </div>
+    <div>
+      <div class="stat-num">2</div>
+      <div class="stat-label">Published working papers</div>
+    </div>
+    <div>
+      <div class="stat-num">2</div>
+      <div class="stat-label">Open-source repositories</div>
+    </div>
+    <div>
+      <div class="stat-num">$1.1T</div>
+      <div class="stat-label">Sector addressed by A.C.E.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── DEMOS ── -->
+<section class="section" id="demos">
+  <div class="section-head"><h2>Interactive demos</h2></div>
+
+  <!-- A.C.E. Demo -->
+  <div class="demo-card">
+    <div class="demo-header">
+      <div>
+        <div class="demo-name">A.C.E. — Restaurant Margin Analyzer</div>
+        <div class="demo-doi">DOI: 10.13140/RG.2.2.33391.60326</div>
+      </div>
+      <span class="tag tag-green">A.C.E. Live Demo</span>
+    </div>
+    <div class="demo-body">
+      <p style="font-size:13px;color:var(--muted);margin-bottom:1.25rem">
+        Adjust ingredient costs to see real-time impact on menu margins. Demonstrates 
+        the A.C.E. Dynamic Menu Engineering Engine — Layer 2 of the Intelligent Neural Network.
+      </p>
+      <div class="slider-group">
+        <div class="slider-row">
+          <label>Chicken breast ($/lb)</label>
+          <input type="range" min="3" max="12" step="0.5" value="4.5" id="chk">
+          <span class="val" id="chk-v">$4.50</span>
+        </div>
+        <div class="slider-row">
+          <label>Olive oil ($/gal)</label>
+          <input type="range" min="15" max="40" step="1" value="25" id="oil">
+          <span class="val" id="oil-v">$25</span>
+        </div>
+        <div class="slider-row">
+          <label>Produce basket ($/unit)</label>
+          <input type="range" min="10" max="35" step="1" value="19" id="prod">
+          <span class="val" id="prod-v">$19</span>
+        </div>
+      </div>
+      <div class="metric-grid">
+        <div class="metric">
+          <div class="metric-label">Grilled chicken</div>
+          <div class="metric-val" id="m1">--</div>
+          <div class="metric-sub">food cost %</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Margherita pizza</div>
+          <div class="metric-val" id="m2">--</div>
+          <div class="metric-sub">food cost %</div>
+        </div>
+        <div class="metric">
+          <div class="metric-label">Caesar salad</div>
+          <div class="metric-val" id="m3">--</div>
+          <div class="metric-sub">food cost %</div>
+        </div>
+      </div>
+      <div id="ace-alert"></div>
+    </div>
+  </div>
+
+  <!-- V.E.T. Demo -->
+  <div class="demo-card">
+    <div class="demo-header">
+      <div>
+        <div class="demo-name">V.E.T. — Vendor Risk Scoring Engine</div>
+        <div class="demo-doi">DOI: 10.13140/RG.2.2.33961.76641</div>
+      </div>
+      <span class="tag tag-blue">V.E.T. Live Demo</span>
+    </div>
+    <div class="demo-body">
+      <p style="font-size:13px;color:var(--muted);margin-bottom:1.25rem">
+        Simulate multi-domain vendor risk scoring. Adjust sanctions proximity, ownership 
+        complexity, and geographic risk to see how V.E.T. generates composite risk tiers.
+      </p>
+      <div class="slider-group">
+        <div class="slider-row">
+          <label>Sanctions proximity (hops)</label>
+          <input type="range" min="0" max="5" step="1" value="0" id="sanc">
+          <span class="val" id="sanc-v">0</span>
+        </div>
+        <div class="slider-row">
+          <label>Ownership depth (layers)</label>
+          <input type="range" min="1" max="8" step="1" value="2" id="depth">
+          <span class="val" id="depth-v">2</span>
+        </div>
+        <div class="slider-row">
+          <label>Geographic risk index</label>
+          <input type="range" min="0" max="100" step="5" value="10" id="geo">
+          <span class="val" id="geo-v">10</span>
+        </div>
+      </div>
+      <div class="bar-list">
+        <div class="bar-item">
+          <div class="bar-meta"><span>Sanctions screening (45% weight)</span><span id="s1p">0%</span></div>
+          <div class="bar-bg"><div class="bar-fg" id="s1b" style="width:0%;background:#E24B4A"></div></div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-meta"><span>Ownership complexity (25% weight)</span><span id="s2p">0%</span></div>
+          <div class="bar-bg"><div class="bar-fg" id="s2b" style="width:0%;background:#BA7517"></div></div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-meta"><span>Geographic risk (30% weight)</span><span id="s3p">0%</span></div>
+          <div class="bar-bg"><div class="bar-fg" id="s3b" style="width:0%;background:#185FA5"></div></div>
+        </div>
+        <div class="bar-item">
+          <div class="bar-meta"><span>Composite risk score</span><span id="s4p">0%</span></div>
+          <div class="bar-bg"><div class="bar-fg" id="s4b" style="width:0%;background:#1D9E75"></div></div>
+        </div>
+      </div>
+      <div class="tier-display">
+        <div class="tier-pill" id="vet-pill" style="background:#E1F5EE;color:#085041">LOW</div>
+        <div class="tier-desc" id="vet-action">Standard procurement process</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── RESEARCH ── -->
+<section class="section" id="research">
+  <div class="section-head"><h2>Published research</h2></div>
+  <div class="pub-list">
+    <div class="pub-item">
+      <div class="pub-year">2026</div>
+      <div>
+        <div class="pub-title">V.E.T. — Vendor Entity Threat Detection: An AI-Powered Data Fusion Framework for Supply Chain Security</div>
+        <div class="pub-meta">DOI: 10.13140/RG.2.2.33961.76641 · ResearchGate · CC BY 4.0 · April 2026</div>
+        <div class="pub-tags">
+          <span class="tag tag-blue">Supply Chain Security</span>
+          <span class="tag tag-blue">EO 13873</span>
+          <span class="tag tag-blue">NIST SP 800-161</span>
+          <span class="tag tag-blue">FinCEN BOI</span>
+          <span class="tag tag-blue">Sanctions AI</span>
+        </div>
+      </div>
+    </div>
+    <div class="pub-item">
+      <div class="pub-year">2026</div>
+      <div>
+        <div class="pub-title">A.C.E. — AI Concierge & Engine: An AI-Driven Financial Intelligence Framework for U.S. SME Restaurant Resilience</div>
+        <div class="pub-meta">DOI: 10.13140/RG.2.2.33391.60326 · ResearchGate · CC BY 4.0 · April 2026</div>
+        <div class="pub-tags">
+          <span class="tag tag-green">Restaurant AI</span>
+          <span class="tag tag-green">SME Resilience</span>
+          <span class="tag tag-green">Invoice Automation</span>
+          <span class="tag tag-green">Dynamic Pricing</span>
+          <span class="tag tag-green">$1.1T Sector</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── EXPERIENCE ── -->
+<section class="section" id="experience">
+  <div class="section-head"><h2>Experience</h2></div>
+  <div class="exp-list">
+    <div class="exp-item">
+      <div class="exp-date">2025 – present</div>
+      <div>
+        <div class="exp-role">Graduate Researcher — M.S. Computer Science (AI)</div>
+        <div class="exp-org">Westcliff University, San Francisco</div>
+        <div class="exp-desc">Developing V.E.T. and A.C.E. AI frameworks. MIS 510: 99/100 (top 1% of cohort). MIS 520: 97%. IBM Cybersecurity Analyst Professional Certificate (8 courses).</div>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-date">2022 – 2024</div>
+      <div>
+        <div class="exp-role">Customer Service Advisor</div>
+        <div class="exp-org">The Hut Group (THG), UK</div>
+        <div class="exp-desc">Cross-cultural operations for international markets across UK, EU, and Southeast Asia on the Lookfantastic platform.</div>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-date">2021 – 2022</div>
+      <div>
+        <div class="exp-role">MSc Financial Technology (Merit)</div>
+        <div class="exp-org">University of the West of England, Bristol</div>
+        <div class="exp-desc">Academic merit scholarship. Coursework: Blockchain, Data Science (Python), Big Data Analytics, FinTech environment. Group project: Cryptocurrency Statistical Arbitrage System.</div>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-date">2016 – 2017</div>
+      <div>
+        <div class="exp-role">Finance Manager</div>
+        <div class="exp-org">ASUSTeK Computer (Thailand) Co., Ltd</div>
+        <div class="exp-desc">Financial reporting and analysis including ASP billing, CID/OOW reports, and management accounts. Developed forecasting models improving budget accuracy by 15%. Led process automation reducing report generation time by 30%.</div>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-date">2012 – 2016</div>
+      <div>
+        <div class="exp-role">Senior Financial Analyst / Internal Auditor</div>
+        <div class="exp-org">YLG Bullion Group (Thailand / Singapore / Malaysia)</div>
+        <div class="exp-desc">Financial analysis, internal audit, and cross-border entity due diligence across a multi-jurisdictional bullion trading organization.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SKILLS ── -->
+<section class="section" id="skills">
+  <div class="section-head"><h2>Skills & certifications</h2></div>
+
+  <p style="font-size:12px;color:var(--muted);margin-bottom:1rem;text-transform:uppercase;letter-spacing:.06em">Technical</p>
+  <div class="skills-grid" style="margin-bottom:2rem">
+    <div class="skill-chip">Python</div>
+    <div class="skill-chip">Machine Learning</div>
+    <div class="skill-chip">NLP</div>
+    <div class="skill-chip">XGBoost</div>
+    <div class="skill-chip">NetworkX</div>
+    <div class="skill-chip">FastAPI</div>
+    <div class="skill-chip">SQL</div>
+    <div class="skill-chip">Tableau</div>
+    <div class="skill-chip">Power BI</div>
+    <div class="skill-chip">AI-OCR</div>
+    <div class="skill-chip">Time-series</div>
+    <div class="skill-chip">Entity resolution</div>
+    <div class="skill-chip">ISO 27002</div>
+    <div class="skill-chip">AWS Cloud</div>
+    <div class="skill-chip">Google Cloud</div>
+    <div class="skill-chip">VBA / Excel</div>
+  </div>
+
+  <p style="font-size:12px;color:var(--muted);margin-bottom:1rem;text-transform:uppercase;letter-spacing:.06em">Certifications</p>
+  <div class="cert-grid">
+    <div class="cert-card">
+      <div class="cert-issuer">IBM</div>
+      <div class="cert-name">Cybersecurity Analyst Professional Certificate (8 courses)</div>
+      <div class="cert-date">June 2024</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-issuer">IBM</div>
+      <div class="cert-name">CompTIA Security+ & CYSA+ Assessment</div>
+      <div class="cert-date">June 2024</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-issuer">Google</div>
+      <div class="cert-name">Advanced Data Analytics Professional Certificate</div>
+      <div class="cert-date">2024</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-issuer">Google</div>
+      <div class="cert-name">Cloud Digital Leader Training</div>
+      <div class="cert-date">2024</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-issuer">Amazon Web Services</div>
+      <div class="cert-name">Starting Your Career with AWS Cloud</div>
+      <div class="cert-date">2024</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-issuer">Thai Fintech Association</div>
+      <div class="cert-name">Member</div>
+      <div class="cert-date">2024 – present</div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>Arthunya Kanoklertwongse · San Francisco, CA · 
+    <a href="mailto:arthunya@gmail.com">arthunya@gmail.com</a> · 
+    <a href="https://github.com/arthunya" target="_blank">GitHub</a> · 
+    <a href="https://www.linkedin.com/in/arthunya/" target="_blank">LinkedIn</a>
+  </p>
+  <p style="margin-top:6px;font-size:11px">Built with HTML/CSS/JS · Hosted on GitHub Pages</p>
+</footer>
+
+<script>
+function calcACE(){
+  const chk=parseFloat(document.getElementById('chk').value);
+  const oil=parseFloat(document.getElementById('oil').value);
+  const prod=parseFloat(document.getElementById('prod').value);
+  document.getElementById('chk-v').textContent='$'+chk.toFixed(2);
+  document.getElementById('oil-v').textContent='$'+oil;
+  document.getElementById('prod-v').textContent='$'+prod;
+  const m1=(chk*0.35+prod*0.04)/14.99;
+  const m2=(oil*0.02/4+prod*0.06)/16.99;
+  const m3=(prod*0.05+oil*0.015/4)/11.99;
+  function color(v){return v>0.38?'#A32D2D':v>0.32?'#BA7517':'#1D9E75'}
+  ['m1','m2','m3'].forEach((id,i)=>{
+    const v=[m1,m2,m3][i];
+    const el=document.getElementById(id);
+    el.textContent=(v*100).toFixed(1)+'%';
+    el.style.color=color(v);
+  });
+  const alerts=[];
+  if(m1>0.32) alerts.push('Grilled chicken food cost above 32% — suggested price: $'+((chk*0.35+prod*0.04)/0.28).toFixed(2));
+  if(m2>0.32) alerts.push('Margherita pizza food cost above threshold');
+  if(m3>0.32) alerts.push('Caesar salad food cost above threshold');
+  const box=document.getElementById('ace-alert');
+  if(alerts.length){
+    box.innerHTML='<div class="alert alert-warn">A.C.E. pricing alert — '+alerts.join(' · ')+'<br><small style="opacity:.8">Advisory only — manager confirmation required before any price change</small></div>';
+  } else {
+    box.innerHTML='<div class="alert alert-ok">All menu items within acceptable food cost range (below 32% threshold)</div>';
+  }
+}
+
+function calcVET(){
+  const sanc=parseInt(document.getElementById('sanc').value);
+  const depth=parseInt(document.getElementById('depth').value);
+  const geo=parseInt(document.getElementById('geo').value);
+  document.getElementById('sanc-v').textContent=sanc;
+  document.getElementById('depth-v').textContent=depth;
+  document.getElementById('geo-v').textContent=geo;
+  const s1=sanc===0?0:Math.min(100,sanc*22);
+  const s2=Math.round(Math.min(100,(depth/8)*100));
+  const s3=geo;
+  const composite=Math.round(s1*0.45+s2*0.25+s3*0.30);
+  ['s1','s2','s3','s4'].forEach((id,i)=>{
+    const v=[s1,s2,s3,composite][i];
+    document.getElementById(id+'p').textContent=v+'%';
+    document.getElementById(id+'b').style.width=v+'%';
+  });
+  const tiers=[
+    {min:75,label:'CRITICAL',bg:'#FCEBEB',color:'#A32D2D',action:'Procurement hold — refer to legal and compliance immediately'},
+    {min:50,label:'HIGH',bg:'#FAEEDA',color:'#854F0B',action:'Escalate to compliance team before proceeding'},
+    {min:25,label:'MEDIUM',bg:'#E6F1FB',color:'#0C447C',action:'Enhanced due diligence recommended'},
+    {min:0,label:'LOW',bg:'#E1F5EE',color:'#085041',action:'Standard procurement process — no additional screening required'}
+  ];
+  const t=tiers.find(x=>composite>=x.min);
+  const pill=document.getElementById('vet-pill');
+  pill.textContent=t.label;
+  pill.style.background=t.bg;
+  pill.style.color=t.color;
+  document.getElementById('vet-action').textContent=t.action;
+}
+
+['chk','oil','prod'].forEach(id=>document.getElementById(id).addEventListener('input',calcACE));
+['sanc','depth','geo'].forEach(id=>document.getElementById(id).addEventListener('input',calcVET));
+calcACE();calcVET();
+</script>
+</body>
+</html>
