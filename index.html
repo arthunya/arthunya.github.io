@@ -224,20 +224,9 @@ footer{padding:20px 32px;display:flex;justify-content:space-between;align-items:
 
   <!-- MAP IMAGE WITH HOTSPOTS -->
   <div class="map-wrap">
-    <img
-      src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Wikipedia-logo-v2.svg/1200px-Wikipedia-logo-v2.svg.png"
-      id="mapImg"
-      alt="World map showing career journey across 5 countries"
-      style="display:none"
-    />
-    <!-- Actual map image — user must host this. Placeholder shows instructions. -->
-    <div id="mapPlaceholder" style="width:100%;aspect-ratio:16/7;background:linear-gradient(135deg,#e8f4fd,#fdefd8);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;border:2px dashed rgba(160,100,40,.3);padding:24px;text-align:center">
-      <div style="font-size:13px;color:#a06030;font-weight:600;margin-bottom:8px">Place your map image here</div>
-      <div style="font-size:11px;color:#b08060;line-height:1.7;max-width:420px">To use the clay globe image you provided:<br>Save it as <code style="background:rgba(0,0,0,.06);padding:2px 6px;border-radius:4px">map.jpg</code> in your GitHub repo root, then replace <code style="background:rgba(0,0,0,.06);padding:2px 6px;border-radius:4px">MAP_URL</code> in the script below with <code style="background:rgba(0,0,0,.06);padding:2px 6px;border-radius:4px">./map.jpg</code></div>
-    </div>
-    <!-- Real image container with hotspots — activated by script -->
-    <div id="mapContainer" style="position:relative;display:none">
-      <img id="realMap" src="" alt="Career journey map" style="width:100%;display:block;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,.15)"/>
+    <!-- Real image container with hotspots -->
+    <div id="mapContainer" style="position:relative">
+      <img id="realMap" src="map.jpg" alt="Career journey map" style="width:100%;display:block;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,.15)"/>
 
       <!-- HOTSPOTS — positions calibrated to the clay globe image -->
       <!-- SF: Golden Gate — left area -->
@@ -246,7 +235,7 @@ footer{padding:20px 32px;display:flex;justify-content:space-between;align-items:
         <div class="hs-dot" style="border-color:#e03020"></div>
       </div>
       <!-- UK: Big Ben — center-left -->
-      <div class="hs" id="hs-uk" style="left:36%;top:28%">
+      <div class="hs" id="hs-uk" style="left:43%;top:28%">
         <div class="hs-ring" style="border-color:#f0c040;animation-delay:.5s"></div>
         <div class="hs-dot" style="border-color:#f0c040"></div>
       </div>
@@ -261,7 +250,7 @@ footer{padding:20px 32px;display:flex;justify-content:space-between;align-items:
         <div class="hs-dot" style="border-color:#5aaae0"></div>
       </div>
       <!-- TH: Wat Arun — far right -->
-      <div class="hs" id="hs-th" style="left:84%;top:34%">
+      <div class="hs" id="hs-th" style="left:88%;top:34%">
         <div class="hs-ring" style="border-color:#f09828;animation-delay:2s"></div>
         <div class="hs-dot" style="border-color:#f09828"></div>
       </div>
@@ -502,20 +491,8 @@ footer{padding:20px 32px;display:flex;justify-content:space-between;align-items:
 </footer>
 
 <script>
-// ── MAP IMAGE SETUP ──
-// Replace MAP_URL with your actual image URL or './map.jpg'
-const MAP_URL = 'https://arthunya.github.io/map.jpg';
-
-const img = new Image();
-img.onload = () => {
-  document.getElementById('mapPlaceholder').style.display = 'none';
-  const c = document.getElementById('mapContainer');
-  document.getElementById('realMap').src = MAP_URL;
-  c.style.display = 'block';
-  initHotspots();
-};
-img.onerror = () => {/* placeholder stays visible */};
-img.src = MAP_URL;
+// ── MAP HOTSPOTS INIT ──
+initHotspots();
 
 function initHotspots(){
   const pairs=[['hs-sf','tt-sf'],['hs-uk','tt-uk'],['hs-my','tt-my'],['hs-sg','tt-sg'],['hs-th','tt-th']];
