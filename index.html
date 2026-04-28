@@ -1,516 +1,578 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Arthunya Kanoklertwongse — AI Researcher & Financial Intelligence</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Arthunya Kanoklertwongse — AI Researcher & FinTech Strategist</title>
 <style>
-:root {
-  --bg: #F8F6F1;
-  --surface: #FFFFFF;
-  --border: rgba(0,0,0,0.08);
-  --text: #1A1814;
-  --muted: #6B6760;
-  --accent: #1B4F72;
-  --accent2: #1D9E75;
-  --warn: #BA7517;
-  --danger: #A32D2D;
-  --serif: 'DM Serif Display', serif;
-  --sans: 'DM Sans', sans-serif;
-  --mono: 'DM Mono', monospace;
-}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:var(--sans);background:var(--bg);color:var(--text);font-size:15px;line-height:1.6}
-
-nav{
-  position:sticky;top:0;z-index:100;background:rgba(248,246,241,0.92);
-  backdrop-filter:blur(12px);border-bottom:1px solid var(--border);
-  padding:0 max(2rem, calc((100% - 900px)/2));
-  display:flex;align-items:center;justify-content:space-between;height:56px;
+:root{
+  --blue:#378ADD;--bl:#63bbff;--purple:#7F77DD;--teal:#1D9E75;
+  --amber:#EF9F27;--green:#4ade80;
+  --dark:#0a0e1a;--dark2:#0d1220;--dark3:#111827;
+  --border:rgba(255,255,255,0.07);
+  --text:#f0f2f8;--muted:rgba(255,255,255,0.45);--hint:rgba(255,255,255,0.2)
 }
-.nav-name{font-family:var(--serif);font-size:16px;letter-spacing:-0.02em}
-.nav-links{display:flex;gap:1.5rem}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--dark);color:var(--text);line-height:1.6}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:12px 32px;background:rgba(10,14,26,0.94);backdrop-filter:blur(12px);border-bottom:0.5px solid var(--border)}
+.nav-logo{font-size:15px;font-weight:600}
+.nav-links{display:flex;gap:22px}
 .nav-links a{font-size:13px;color:var(--muted);text-decoration:none;transition:color .2s}
 .nav-links a:hover{color:var(--text)}
+.nav-cpt{font-size:11px;background:rgba(99,187,255,.12);color:var(--bl);border:.5px solid rgba(99,187,255,.3);padding:4px 12px;border-radius:20px}
 
-main{max-width:900px;margin:0 auto;padding:0 2rem 6rem}
+/* HERO */
+#hero{background:linear-gradient(180deg,#faf5ee 0%,#f5ead8 100%);padding:36px 24px 28px;display:flex;flex-direction:column;align-items:center}
+.hero-top{text-align:center;margin-bottom:20px;max-width:620px}
+.hero-eyebrow{font-size:11px;letter-spacing:.14em;color:#a06030;text-transform:uppercase;margin-bottom:10px}
+.hero-h1{font-size:32px;font-weight:700;color:#1a1a2e;line-height:1.2;margin-bottom:10px}
+.hero-h1 em{font-style:normal;color:#c0392b}
+.hero-rare{font-size:13px;color:#7a5030;font-style:italic;margin-bottom:16px;line-height:1.65;max-width:520px;margin-left:auto;margin-right:auto}
+.hero-rare strong{color:#c0392b;font-style:normal}
+.hero-btns{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;margin-bottom:12px}
+.btn-p{font-size:13px;padding:9px 22px;background:#c0392b;color:#fff;border:none;border-radius:8px;cursor:pointer;font-weight:500}
+.btn-o{font-size:13px;padding:9px 20px;background:transparent;color:#3a2a1a;border:1.5px solid rgba(60,40,20,.25);border-radius:8px;cursor:pointer}
 
-.hero{padding:5rem 0 4rem;display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:start}
-.hero-tag{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--accent);text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:8px}
-.hero-tag::before{content:'';width:24px;height:1px;background:var(--accent)}
-h1{font-family:var(--serif);font-size:clamp(2.2rem,5vw,3.2rem);line-height:1.15;letter-spacing:-0.03em;margin-bottom:1.2rem}
-h1 em{font-style:italic;color:var(--accent)}
-.hero-desc{color:var(--muted);max-width:520px;margin-bottom:2rem;line-height:1.75}
-.hero-links{display:flex;flex-wrap:wrap;gap:8px}
-.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:6px;font-size:13px;font-weight:500;text-decoration:none;border:1px solid var(--border);color:var(--text);background:var(--surface);transition:all .2s;cursor:pointer}
-.btn:hover{border-color:var(--accent);color:var(--accent)}
-.btn-fill{background:var(--accent);color:#fff;border-color:var(--accent)}
-.btn-fill:hover{background:#153e5a;color:#fff;border-color:#153e5a}
-.hero-stats{display:flex;flex-direction:column;gap:16px;padding:2rem;background:var(--surface);border:1px solid var(--border);border-radius:12px;min-width:200px}
-.stat-num{font-family:var(--serif);font-size:2.4rem;letter-spacing:-0.04em;line-height:1}
-.stat-label{font-size:11px;color:var(--muted);margin-top:2px}
+/* MAP IMAGE + HOTSPOTS */
+.map-wrap{position:relative;width:100%;max-width:720px;margin:0 auto}
+.map-wrap img{width:100%;display:block;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,.15)}
 
-.section{margin-bottom:5rem}
-.section-head{display:flex;align-items:center;gap:12px;margin-bottom:2rem}
-.section-head h2{font-family:var(--serif);font-size:1.6rem;letter-spacing:-0.02em}
-.section-head::after{content:'';flex:1;height:1px;background:var(--border)}
+/* hotspot dot */
+.hs{position:absolute;width:28px;height:28px;transform:translate(-50%,-50%);cursor:pointer;z-index:10}
+.hs-ring{position:absolute;inset:0;border-radius:50%;border:2px solid rgba(255,255,255,.7);animation:hs-pulse 2.5s infinite ease-out}
+.hs-dot{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:12px;height:12px;border-radius:50%;background:white;border:2.5px solid #c0392b;box-shadow:0 2px 6px rgba(0,0,0,.25)}
+.hs:nth-child(2) .hs-dot{border-color:#f0c040}
+.hs:nth-child(3) .hs-dot{border-color:#3da8e8}
+.hs:nth-child(4) .hs-dot{border-color:#5aaae0}
+.hs:nth-child(5) .hs-dot{border-color:#f09828}
+.hs:nth-child(2) .hs-ring{animation-delay:.5s}
+.hs:nth-child(3) .hs-ring{animation-delay:1s}
+.hs:nth-child(4) .hs-ring{animation-delay:1.5s}
+.hs:nth-child(5) .hs-ring{animation-delay:2s}
+@keyframes hs-pulse{0%{transform:scale(1);opacity:.6}70%{transform:scale(1.9);opacity:0}100%{transform:scale(1);opacity:0}}
 
-.demo-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:1.5rem}
-.demo-header{padding:1.25rem 1.5rem;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
-.demo-name{font-weight:500;font-size:15px}
-.demo-doi{font-family:var(--mono);font-size:11px;color:var(--muted)}
-.tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:500}
-.tag-blue{background:#E6F1FB;color:#0C447C}
-.tag-green{background:#E1F5EE;color:#085041}
-.demo-body{padding:1.5rem}
+/* tooltip */
+.tt{position:absolute;background:white;border:1.5px solid #e8d0b0;border-radius:12px;padding:12px 16px;pointer-events:none;opacity:0;transition:opacity .18s,transform .18s;transform:translateY(8px) scale(.97);z-index:60;min-width:185px;box-shadow:0 8px 28px rgba(0,0,0,.16);white-space:nowrap}
+.tt.show{opacity:1;transform:translateY(0) scale(1)}
+.tt-flag{font-size:20px;margin-bottom:3px}
+.tt-country{font-size:13px;font-weight:700;color:#1a1a2e;margin-bottom:1px}
+.tt-role{font-size:11px;color:#c0392b;font-weight:600;margin-bottom:2px}
+.tt-years{font-size:10px;color:#999;margin-bottom:5px}
+.tt-desc{font-size:11px;color:#555;line-height:1.55;white-space:normal;max-width:175px}
 
-.slider-group{margin-bottom:1rem}
-.slider-row{display:flex;align-items:center;gap:12px;margin-bottom:8px}
-.slider-row label{font-size:12px;color:var(--muted);min-width:160px}
-.slider-row input[type=range]{flex:1;height:4px;accent-color:var(--accent)}
-.slider-row .val{font-family:var(--mono);font-size:12px;font-weight:500;min-width:52px;text-align:right}
+/* hero bottom */
+.hero-bottom{text-align:center;margin-top:18px}
+.avail{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#2d7a3a;background:rgba(45,122,58,.1);border:.5px solid rgba(45,122,58,.3);padding:5px 14px;border-radius:20px}
+.avail-dot{width:6px;height:6px;border-radius:50%;background:#2d7a3a;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.map-hint{font-size:11px;color:#a08060;margin-top:8px;letter-spacing:.04em}
 
-.metric-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:1rem 0}
-.metric{padding:12px;background:var(--bg);border-radius:8px;border:1px solid var(--border)}
-.metric-label{font-size:11px;color:var(--muted);margin-bottom:4px}
-.metric-val{font-family:var(--serif);font-size:1.6rem;letter-spacing:-0.03em}
-.metric-sub{font-size:10px;color:var(--muted)}
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border:.5px solid var(--border);border-radius:12px;overflow:hidden;margin:0 32px}
+.stat{padding:20px 16px;border-right:.5px solid var(--border);text-align:center;background:var(--dark2)}
+.stat:last-child{border-right:none}
+.stat-n{font-size:28px;font-weight:700;color:var(--bl)}
+.stat-l{font-size:11px;color:var(--muted);margin-top:3px}
 
-.bar-list{margin-top:1rem}
-.bar-item{margin-bottom:10px}
-.bar-meta{display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px}
-.bar-meta span:first-child{color:var(--muted)}
-.bar-meta span:last-child{font-family:var(--mono);font-weight:500}
-.bar-bg{height:6px;background:var(--bg);border-radius:3px;overflow:hidden;border:1px solid var(--border)}
-.bar-fg{height:100%;border-radius:3px;transition:width .4s cubic-bezier(.4,0,.2,1)}
+/* RARE INTERSECTION */
+#rare{background:var(--dark2);padding:56px 32px;border-bottom:.5px solid var(--border)}
+.sec-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7b9fd4;margin-bottom:6px}
+.sec-title{font-size:22px;font-weight:600;color:var(--text);margin-bottom:28px}
+.rare-quote{font-size:16px;color:var(--text);line-height:1.8;font-style:italic;border-left:3px solid #c0392b;padding-left:20px;margin-bottom:36px;max-width:660px}
+.rare-quote strong{font-style:normal;color:#f87171}
 
-.tier-display{display:flex;align-items:center;gap:14px;padding:14px;background:var(--bg);border-radius:8px;margin-top:1rem;border:1px solid var(--border)}
-.tier-pill{padding:4px 14px;border-radius:20px;font-size:13px;font-weight:500;font-family:var(--mono)}
-.tier-desc{font-size:12px;color:var(--muted)}
+/* Venn */
+.venn-wrap{display:flex;align-items:stretch;gap:0;margin-bottom:32px;max-width:660px}
+.vc{background:rgba(255,255,255,.03);border:.5px solid rgba(255,255,255,.08);border-radius:14px;padding:20px 18px;flex:1}
+.vc-left{border-right:none;border-radius:14px 0 0 14px}
+.vc-right{border-left:none;border-radius:0 14px 14px 0}
+.vc-mid{background:rgba(239,159,39,.07);border:1.5px solid rgba(239,159,39,.4);padding:20px 18px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:160px;z-index:2}
+.vc-title{font-size:11px;font-weight:600;margin-bottom:12px;letter-spacing:.04em}
+.vc-left .vc-title{color:var(--bl)}
+.vc-right .vc-title{color:#5DCAA5}
+.vc-mid .vc-title{color:#EF9F27;text-align:center;font-size:12px}
+.vc-items{font-size:12px;color:var(--muted);line-height:2}
+.vc-sub{font-size:10px;color:rgba(239,159,39,.65);text-align:center;line-height:1.5;margin-top:6px}
 
-.alert{padding:10px 14px;border-radius:8px;font-size:12px;margin-top:12px;border-left:3px solid}
-.alert-ok{background:#E1F5EE;border-color:#1D9E75;color:#085041}
-.alert-warn{background:#FAEEDA;border-color:#BA7517;color:#633806}
+.rare-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:660px}
+.r-stat{background:rgba(255,255,255,.03);border:.5px solid rgba(255,255,255,.07);border-radius:10px;padding:16px;text-align:center}
+.r-stat-n{font-size:22px;font-weight:700;color:#EF9F27;margin-bottom:4px}
+.r-stat-l{font-size:11px;color:var(--muted);line-height:1.5}
 
-.pub-list{display:flex;flex-direction:column;gap:1rem}
-.pub-item{display:grid;grid-template-columns:auto 1fr;gap:16px;padding:1.25rem;background:var(--surface);border:1px solid var(--border);border-radius:12px;align-items:start}
-.pub-year{font-family:var(--mono);font-size:11px;color:var(--muted);padding-top:2px}
-.pub-title{font-weight:500;margin-bottom:4px}
-.pub-meta{font-size:12px;color:var(--muted);margin-bottom:8px;font-family:var(--mono)}
-.pub-tags{display:flex;flex-wrap:wrap;gap:6px}
+/* ABOUT */
+#about{background:var(--dark);padding:56px 32px;border-bottom:.5px solid var(--border)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.about-text{font-size:14px;color:var(--muted);line-height:1.8}
+.about-text p{margin-bottom:14px}
+.ctags{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
+.ctag{font-size:11px;padding:4px 11px;border-radius:12px;background:rgba(255,255,255,.04);border:.5px solid rgba(255,255,255,.09);color:var(--hint)}
+.cred-cards{display:flex;flex-direction:column;gap:10px}
+.cred-card{background:rgba(255,255,255,.03);border:.5px solid rgba(255,255,255,.07);border-radius:10px;padding:13px 16px;display:flex;justify-content:space-between;align-items:center}
+.cred-name{font-size:13px;color:var(--text);margin-bottom:2px}
+.cred-sub{font-size:11px;color:var(--muted)}
+.badge{font-size:10px;padding:3px 9px;border-radius:10px;white-space:nowrap}
+.badge-blue{background:rgba(99,187,255,.1);color:var(--bl);border:.5px solid rgba(99,187,255,.2)}
+.badge-purple{background:rgba(127,119,221,.1);color:#a78bfa;border:.5px solid rgba(127,119,221,.2)}
 
-.exp-list{display:flex;flex-direction:column;gap:0}
-.exp-item{display:grid;grid-template-columns:160px 1fr;gap:2rem;padding:1.5rem 0;border-bottom:1px solid var(--border)}
-.exp-item:last-child{border-bottom:none}
-.exp-date{font-family:var(--mono);font-size:11px;color:var(--muted);padding-top:3px}
-.exp-role{font-weight:500;font-size:14px;margin-bottom:2px}
-.exp-org{font-size:13px;color:var(--accent);margin-bottom:6px}
-.exp-desc{font-size:13px;color:var(--muted);line-height:1.6}
+/* RESEARCH */
+#research{background:var(--dark3);padding:56px 32px;border-bottom:.5px solid var(--border)}
+.r-cards{display:flex;flex-direction:column;gap:16px}
+.r-card{background:rgba(255,255,255,.03);border:.5px solid rgba(255,255,255,.07);border-radius:14px;padding:22px 24px;display:grid;grid-template-columns:1fr auto;gap:16px;transition:border-color .2s}
+.r-card:hover{border-color:rgba(99,187,255,.3)}
+.r-year{font-size:11px;color:#7b9fd4;margin-bottom:5px}
+.r-title{font-size:15px;font-weight:600;color:var(--text);margin-bottom:5px;line-height:1.4}
+.r-doi{font-size:11px;color:var(--hint);margin-bottom:12px}
+.r-tags{display:flex;gap:6px;flex-wrap:wrap}
+.r-tag{font-size:11px;padding:3px 9px;border-radius:10px;background:rgba(99,187,255,.07);color:var(--bl);border:.5px solid rgba(99,187,255,.18)}
+.r-tag.policy{background:rgba(127,119,221,.07);color:#a78bfa;border-color:rgba(127,119,221,.18)}
+.r-links{display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.r-link{font-size:11px;padding:5px 14px;border-radius:8px;border:.5px solid rgba(255,255,255,.1);color:var(--muted);cursor:pointer;background:transparent;transition:border-color .15s,color .15s}
+.r-link:hover{border-color:rgba(99,187,255,.35);color:var(--bl)}
 
-.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px}
-.skill-chip{padding:8px 12px;background:var(--surface);border:1px solid var(--border);border-radius:8px;font-size:12px;text-align:center;color:var(--muted)}
+/* DEMO */
+#demo{background:var(--dark2);padding:56px 32px;border-bottom:.5px solid var(--border)}
+.demo-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.demo-card{background:rgba(255,255,255,.03);border:.5px solid rgba(255,255,255,.07);border-radius:14px;padding:22px}
+.demo-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:3px}
+.demo-doi{font-size:10px;color:var(--hint);margin-bottom:16px}
+.slider-row{margin-bottom:12px}
+.slider-label{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:5px}
+.slider-val{color:var(--bl);font-weight:500}
+input[type=range]{width:100%;accent-color:var(--bl);cursor:pointer}
+.output-area{margin-top:14px;padding-top:14px;border-top:.5px solid rgba(255,255,255,.06)}
+.out-row{display:flex;justify-content:space-between;font-size:12px;margin-bottom:7px}
+.out-name{color:var(--muted)}
+.out-val{font-weight:600}
+.c-red{color:#f87171}.c-amb{color:#fb923c}.c-grn{color:var(--green)}
+.risk-badge{margin-top:12px;text-align:center;font-size:11px;padding:6px;border-radius:20px}
+.risk-hi{background:rgba(248,113,113,.1);color:#f87171;border:.5px solid rgba(248,113,113,.22)}
+.risk-ok{background:rgba(74,222,128,.08);color:var(--green);border:.5px solid rgba(74,222,128,.2)}
 
-.cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:1rem}
-.cert-card{padding:12px 14px;background:var(--surface);border:1px solid var(--border);border-radius:8px}
-.cert-issuer{font-size:10px;color:var(--accent);font-weight:500;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
-.cert-name{font-size:12px;font-weight:500;line-height:1.4}
-.cert-date{font-size:11px;color:var(--muted);margin-top:2px;font-family:var(--mono)}
+/* EXPERIENCE */
+#experience{background:var(--dark);padding:56px 32px;border-bottom:.5px solid var(--border)}
+.tl-item{display:grid;grid-template-columns:100px 1fr;gap:18px;padding:22px 0;border-bottom:.5px solid rgba(255,255,255,.05)}
+.tl-item:last-child{border-bottom:none}
+.tl-date{font-size:12px;color:var(--hint);padding-top:2px}
+.tl-title{font-size:14px;font-weight:600;color:var(--text);margin-bottom:2px}
+.tl-org{font-size:12px;color:var(--bl);margin-bottom:6px}
+.tl-desc{font-size:12px;color:var(--muted);line-height:1.7}
+.tl-hl{font-size:11px;color:var(--green);margin-top:6px}
 
-footer{border-top:1px solid var(--border);padding:2rem 0;text-align:center;font-size:12px;color:var(--muted);max-width:900px;margin:0 auto;padding-left:2rem;padding-right:2rem}
-footer a{color:var(--accent);text-decoration:none}
+/* SKILLS */
+#skills{background:var(--dark3);padding:56px 32px;border-bottom:.5px solid var(--border)}
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.sg-title{font-size:11px;color:var(--hint);text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px}
+.tags{display:flex;flex-wrap:wrap;gap:7px}
+.tag{font-size:12px;padding:5px 11px;border-radius:20px;background:rgba(255,255,255,.04);border:.5px solid rgba(255,255,255,.09);color:var(--muted);transition:border-color .15s,color .15s;cursor:default}
+.tag:hover{border-color:rgba(99,187,255,.3);color:var(--bl)}
+.cert-list{display:flex;flex-direction:column;gap:9px}
+.cert-row{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--muted)}
+.cert-dot{width:6px;height:6px;border-radius:50%;background:#a78bfa;flex-shrink:0}
 
-@media(max-width:640px){
-  .hero{grid-template-columns:1fr}
-  .hero-stats{flex-direction:row;flex-wrap:wrap;gap:12px}
-  .exp-item{grid-template-columns:1fr}
-  .exp-date{display:none}
-}
+/* CONTACT */
+#contact{background:var(--dark);padding:56px 32px;border-bottom:.5px solid var(--border)}
+.contact-inner{text-align:center}
+.contact-inner p{font-size:14px;color:var(--muted);max-width:480px;margin:0 auto 24px;line-height:1.7}
+.contact-links{display:flex;justify-content:center;gap:11px;flex-wrap:wrap}
+.c-link{font-size:13px;padding:10px 22px;border-radius:8px;border:.5px solid rgba(255,255,255,.13);color:var(--muted);cursor:pointer;background:rgba(255,255,255,.03);transition:border-color .15s,color .15s}
+.c-link:hover{border-color:rgba(99,187,255,.35);color:var(--bl)}
+
+footer{padding:20px 32px;display:flex;justify-content:space-between;align-items:center;border-top:.5px solid var(--border)}
+.f-name{font-size:12px;color:var(--hint)}
+.f-links{display:flex;gap:18px}
+.f-links a{font-size:12px;color:rgba(255,255,255,.2);text-decoration:none}
+.f-links a:hover{color:var(--muted)}
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
-  <div class="nav-name">Arthunya K.</div>
+  <span class="nav-logo">Arthunya K.</span>
   <div class="nav-links">
-    <a href="#demos">Demos</a>
+    <a href="#rare">Why Unique</a>
     <a href="#research">Research</a>
+    <a href="#demo">Demos</a>
     <a href="#experience">Experience</a>
     <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
   </div>
+  <span class="nav-cpt">F-1 · CPT Eligible</span>
 </nav>
 
-<main>
-
-<!-- ── HERO ── -->
-<section class="hero">
-  <div>
-    <div class="hero-tag">AI Researcher & Financial Intelligence</div>
-    <h1>Building AI for<br><em>national-scale</em><br>financial security</h1>
-    <p class="hero-desc">
-      Graduate researcher in AI at Westcliff University, San Francisco. 
-      Developing open-source frameworks for U.S. supply chain security (V.E.T.) 
-      and SME restaurant financial resilience (A.C.E.). 14 years of practitioner 
-      experience in financial analysis and KYC/AML compliance across Asia-Pacific, 
-      the UK, and the United States.
+<!-- HERO -->
+<section id="hero">
+  <!-- TOP TEXT -->
+  <div class="hero-top">
+    <div class="hero-eyebrow">AI Researcher &amp; FinTech Strategist</div>
+    <h1 class="hero-h1">Where <em>financial intelligence</em><br>meets machine learning.</h1>
+    <p class="hero-rare">
+      Most AI researchers have never read a sanctions list.<br>
+      Most compliance officers have never trained a model.<br>
+      <strong>I've spent 14 years doing both — across 5 countries.</strong>
     </p>
-    <div class="hero-links">
-      <a class="btn btn-fill" href="https://github.com/arthunya" target="_blank">GitHub</a>
-      <a class="btn" href="https://www.researchgate.net/profile/Arthunya-Kanoklertwongse-2/research" target="_blank">ResearchGate</a>
-      <a class="btn" href="https://www.linkedin.com/in/arthunya/" target="_blank">LinkedIn</a>
-      <a class="btn" href="mailto:arthunya@gmail.com">Contact</a>
+    <div class="hero-btns">
+      <button class="btn-p" onclick="document.getElementById('research').scrollIntoView({behavior:'smooth'})">View Research</button>
+      <button class="btn-o" onclick="window.open('https://github.com/arthunya')">GitHub</button>
+      <button class="btn-o" onclick="window.open('https://www.linkedin.com/in/arthunya/')">LinkedIn</button>
+      <button class="btn-o" onclick="window.location='mailto:arthunya@gmail.com'">Contact Me</button>
     </div>
   </div>
-  <div class="hero-stats">
+
+  <!-- MAP IMAGE WITH HOTSPOTS -->
+  <div class="map-wrap">
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Wikipedia-logo-v2.svg/1200px-Wikipedia-logo-v2.svg.png"
+      id="mapImg"
+      alt="World map showing career journey across 5 countries"
+      style="display:none"
+    />
+    <!-- Actual map image — user must host this. Placeholder shows instructions. -->
+    <div id="mapPlaceholder" style="width:100%;aspect-ratio:16/7;background:linear-gradient(135deg,#e8f4fd,#fdefd8);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;border:2px dashed rgba(160,100,40,.3);padding:24px;text-align:center">
+      <div style="font-size:13px;color:#a06030;font-weight:600;margin-bottom:8px">Place your map image here</div>
+      <div style="font-size:11px;color:#b08060;line-height:1.7;max-width:420px">To use the clay globe image you provided:<br>Save it as <code style="background:rgba(0,0,0,.06);padding:2px 6px;border-radius:4px">map.jpg</code> in your GitHub repo root, then replace <code style="background:rgba(0,0,0,.06);padding:2px 6px;border-radius:4px">MAP_URL</code> in the script below with <code style="background:rgba(0,0,0,.06);padding:2px 6px;border-radius:4px">./map.jpg</code></div>
+    </div>
+    <!-- Real image container with hotspots — activated by script -->
+    <div id="mapContainer" style="position:relative;display:none">
+      <img id="realMap" src="" alt="Career journey map" style="width:100%;display:block;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,.15)"/>
+
+      <!-- HOTSPOTS — positions calibrated to the clay globe image -->
+      <!-- SF: Golden Gate — left area -->
+      <div class="hs" id="hs-sf" style="left:13%;top:42%">
+        <div class="hs-ring" style="border-color:#e03020"></div>
+        <div class="hs-dot" style="border-color:#e03020"></div>
+      </div>
+      <!-- UK: Big Ben — center-left -->
+      <div class="hs" id="hs-uk" style="left:36%;top:28%">
+        <div class="hs-ring" style="border-color:#f0c040;animation-delay:.5s"></div>
+        <div class="hs-dot" style="border-color:#f0c040"></div>
+      </div>
+      <!-- MY: Petronas — center-right -->
+      <div class="hs" id="hs-my" style="left:57%;top:32%">
+        <div class="hs-ring" style="border-color:#3da8e8;animation-delay:1s"></div>
+        <div class="hs-dot" style="border-color:#3da8e8"></div>
+      </div>
+      <!-- SG: Merlion + MBS — right of MY -->
+      <div class="hs" id="hs-sg" style="left:68%;top:40%">
+        <div class="hs-ring" style="border-color:#5aaae0;animation-delay:1.5s"></div>
+        <div class="hs-dot" style="border-color:#5aaae0"></div>
+      </div>
+      <!-- TH: Wat Arun — far right -->
+      <div class="hs" id="hs-th" style="left:84%;top:34%">
+        <div class="hs-ring" style="border-color:#f09828;animation-delay:2s"></div>
+        <div class="hs-dot" style="border-color:#f09828"></div>
+      </div>
+
+      <!-- TOOLTIPS -->
+      <div class="tt" id="tt-sf">
+        <div class="tt-flag">🇺🇸</div>
+        <div class="tt-country">San Francisco, USA</div>
+        <div class="tt-role">AI Researcher · MS CS (AI)</div>
+        <div class="tt-years">2025 – present</div>
+        <div class="tt-desc">V.E.T. &amp; A.C.E. frameworks at Westcliff University. CPT-eligible.</div>
+      </div>
+      <div class="tt" id="tt-uk">
+        <div class="tt-flag">🇬🇧</div>
+        <div class="tt-country">Bristol, UK</div>
+        <div class="tt-role">Scholarship recipient · Int'l Ops</div>
+        <div class="tt-years">2021 – 2024</div>
+        <div class="tt-desc">UWE scholarship · FinTech, Blockchain &amp; Big Data · THG cross-cultural ops.</div>
+      </div>
+      <div class="tt" id="tt-my">
+        <div class="tt-flag">🇲🇾</div>
+        <div class="tt-country">Malaysia</div>
+        <div class="tt-role">Sr. Financial Analyst · Auditor</div>
+        <div class="tt-years">2012 – 2016</div>
+        <div class="tt-desc">YLG Bullion · cross-border due diligence · KYC/AML compliance.</div>
+      </div>
+      <div class="tt" id="tt-sg">
+        <div class="tt-flag">🇸🇬</div>
+        <div class="tt-country">Singapore</div>
+        <div class="tt-role">Sr. Financial Analyst · Auditor</div>
+        <div class="tt-years">2012 – 2016</div>
+        <div class="tt-desc">YLG Bullion · regional KYC/AML · multi-jurisdictional audit.</div>
+      </div>
+      <div class="tt" id="tt-th">
+        <div class="tt-flag">🇹🇭</div>
+        <div class="tt-country">Bangkok, Thailand</div>
+        <div class="tt-role">Finance Manager · B.Acc.</div>
+        <div class="tt-years">2010 – 2017</div>
+        <div class="tt-desc">ASUSTeK Computer · YLG Bullion · Siam University GPA 3.82.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTTOM TEXT -->
+  <div class="hero-bottom">
+    <span class="avail"><span class="avail-dot"></span>Available for CPT-eligible roles · San Francisco, CA</span>
+    <div class="map-hint">hover the landmarks to explore the journey</div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><div class="stat-n">14</div><div class="stat-l">Years of experience</div></div>
+  <div class="stat"><div class="stat-n">2</div><div class="stat-l">Published papers (DOI)</div></div>
+  <div class="stat"><div class="stat-n">2</div><div class="stat-l">Open-source repos</div></div>
+  <div class="stat"><div class="stat-n">$1.1T</div><div class="stat-l">Sector addressed</div></div>
+</div>
+
+<!-- RARE INTERSECTION -->
+<section id="rare">
+  <div class="sec-label">Why This Profile Is Rare</div>
+  <div class="sec-title">The intersection that matters</div>
+  <p class="rare-quote">
+    "Most AI researchers have never read a sanctions list.<br>
+    Most compliance officers have never trained a model.<br>
+    <strong>The combination of both — with 14 years of real-world data — is what makes AI actually work in financial risk.</strong>"
+  </p>
+  <div class="venn-wrap">
+    <div class="vc vc-left">
+      <div class="vc-title">Finance &amp; Compliance</div>
+      <div class="vc-items">
+        KYC / AML<br>Internal audit<br>Bullion trading<br>Multi-jurisdictional ops<br>Financial reporting<br>Budget forecasting
+      </div>
+    </div>
+    <div class="vc vc-mid">
+      <div class="vc-title">Arthunya</div>
+      <div class="vc-sub">14 yrs · 5 countries<br>2 AI frameworks<br>published research</div>
+    </div>
+    <div class="vc vc-right">
+      <div class="vc-title">AI &amp; Technology</div>
+      <div class="vc-items">
+        Machine Learning<br>NLP · XGBoost<br>Entity resolution<br>Graph networks<br>ISO 27002<br>Cloud (AWS / GCP)
+      </div>
+    </div>
+  </div>
+  <div class="rare-stats">
+    <div class="r-stat"><div class="r-stat-n">~1%</div><div class="r-stat-l">of AI researchers have hands-on KYC/AML compliance experience</div></div>
+    <div class="r-stat"><div class="r-stat-n">5</div><div class="r-stat-l">countries of professional operation — TH, SG, MY, UK, US</div></div>
+    <div class="r-stat"><div class="r-stat-n">2</div><div class="r-stat-l">published AI frameworks aligned with U.S. national policy (EO 13873, NIST)</div></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="sec-label">About</div>
+  <div class="sec-title">Researcher. Practitioner. Builder.</div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I develop open-source AI frameworks addressing U.S. national security and economic resilience — V.E.T. (vendor threat detection for supply chains) and A.C.E. (financial intelligence for SME restaurants).</p>
+      <p>My work bridges 14 years of hands-on financial and compliance experience with graduate-level AI research, enabling solutions grounded in real-world institutional context.</p>
+      <div class="ctags">
+        <span class="ctag">🇹🇭 Thailand</span><span class="ctag">🇸🇬 Singapore</span><span class="ctag">🇲🇾 Malaysia</span><span class="ctag">🇬🇧 UK</span><span class="ctag">🇺🇸 United States</span>
+      </div>
+    </div>
+    <div class="cred-cards">
+      <div class="cred-card"><div><div class="cred-name">M.S. Computer Science (AI)</div><div class="cred-sub">Westcliff University · 2025–2027</div></div><span class="badge badge-blue">In progress</span></div>
+      <div class="cred-card"><div><div class="cred-name">MSc Financial Technology</div><div class="cred-sub">University of the West of England, Bristol</div></div><span class="badge badge-purple">Scholarship recipient</span></div>
+      <div class="cred-card"><div><div class="cred-name">B.Acc. Accounting</div><div class="cred-sub">Siam University · GPA 3.82</div></div><span class="badge badge-purple">3.82 GPA</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="sec-label">Research &amp; Publications</div>
+  <div class="sec-title">Open-source AI frameworks</div>
+  <div class="r-cards">
+    <div class="r-card">
+      <div>
+        <div class="r-year">April 2026 · ResearchGate · CC BY 4.0</div>
+        <div class="r-title">V.E.T. — Vendor Entity Threat Detection: An AI-Powered Data Fusion Framework for Supply Chain Security</div>
+        <div class="r-doi">DOI: 10.13140/RG.2.2.33961.76641</div>
+        <div class="r-tags"><span class="r-tag policy">EO 13873</span><span class="r-tag policy">NIST SP 800-161</span><span class="r-tag policy">FinCEN BOI</span><span class="r-tag">Supply Chain AI</span><span class="r-tag">Sanctions Screening</span></div>
+      </div>
+      <div class="r-links">
+        <button class="r-link" onclick="window.open('https://www.researchgate.net/profile/Arthunya-Kanoklertwongse-2/research')">ResearchGate</button>
+        <button class="r-link" onclick="window.open('https://github.com/arthunya')">GitHub</button>
+        <button class="r-link" onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">Live Demo ↓</button>
+      </div>
+    </div>
+    <div class="r-card">
+      <div>
+        <div class="r-year">April 2026 · ResearchGate · CC BY-ND 4.0</div>
+        <div class="r-title">A.C.E. — AI Concierge &amp; Engine: An AI-Driven Financial Intelligence Framework for U.S. SME Restaurant Resilience</div>
+        <div class="r-doi">DOI: 10.13140/RG.2.2.33391.60326</div>
+        <div class="r-tags"><span class="r-tag">$1.1T Sector</span><span class="r-tag">Restaurant AI</span><span class="r-tag">Invoice Automation</span><span class="r-tag">Dynamic Pricing</span><span class="r-tag policy">SME Resilience</span></div>
+      </div>
+      <div class="r-links">
+        <button class="r-link" onclick="window.open('https://www.researchgate.net/profile/Arthunya-Kanoklertwongse-2/research')">ResearchGate</button>
+        <button class="r-link" onclick="window.open('https://github.com/arthunya')">GitHub</button>
+        <button class="r-link" onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">Live Demo ↓</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEMO -->
+<section id="demo">
+  <div class="sec-label">Interactive Demos</div>
+  <div class="sec-title">See the frameworks in action</div>
+  <div class="demo-grid">
+    <div class="demo-card">
+      <div class="demo-title">V.E.T. — Vendor Risk Scoring Engine</div>
+      <div class="demo-doi">DOI: 10.13140/RG.2.2.33961.76641</div>
+      <div class="slider-row"><div class="slider-label"><span>Sanctions proximity</span><span class="slider-val" id="v1l">3 hops</span></div><input type="range" min="0" max="6" value="3" id="v1" oninput="calcV()"/></div>
+      <div class="slider-row"><div class="slider-label"><span>Ownership depth</span><span class="slider-val" id="v2l">4 layers</span></div><input type="range" min="1" max="8" value="4" id="v2" oninput="calcV()"/></div>
+      <div class="slider-row"><div class="slider-label"><span>Geographic risk index</span><span class="slider-val" id="v3l">45</span></div><input type="range" min="0" max="100" value="45" id="v3" oninput="calcV()"/></div>
+      <div class="output-area">
+        <div class="out-row"><span class="out-name">Sanctions screening (45%)</span><span class="out-val" id="vo1">62%</span></div>
+        <div class="out-row"><span class="out-name">Ownership complexity (25%)</span><span class="out-val" id="vo2">78%</span></div>
+        <div class="out-row"><span class="out-name">Geographic risk (30%)</span><span class="out-val" id="vo3">45%</span></div>
+        <div class="out-row" style="margin-top:6px"><span class="out-name" style="font-weight:500;color:var(--text)">Composite score</span><span class="out-val" id="vot" style="font-size:16px">60%</span></div>
+        <div class="risk-badge risk-hi" id="vbadge">ELEVATED RISK — Enhanced due diligence required</div>
+      </div>
+    </div>
+    <div class="demo-card">
+      <div class="demo-title">A.C.E. — Restaurant Margin Analyzer</div>
+      <div class="demo-doi">DOI: 10.13140/RG.2.2.33391.60326</div>
+      <div class="slider-row"><div class="slider-label"><span>Chicken breast ($/lb)</span><span class="slider-val" id="a1l">$4.50</span></div><input type="range" min="2" max="12" step="0.5" value="4.5" id="a1" oninput="calcA()"/></div>
+      <div class="slider-row"><div class="slider-label"><span>Olive oil ($/gal)</span><span class="slider-val" id="a2l">$25</span></div><input type="range" min="10" max="60" step="1" value="25" id="a2" oninput="calcA()"/></div>
+      <div class="slider-row"><div class="slider-label"><span>Produce basket ($/unit)</span><span class="slider-val" id="a3l">$19</span></div><input type="range" min="8" max="40" step="1" value="19" id="a3" oninput="calcA()"/></div>
+      <div class="output-area">
+        <div class="out-row"><span class="out-name">Grilled chicken</span><span class="out-val c-grn" id="ao1">28% food cost</span></div>
+        <div class="out-row"><span class="out-name">Margherita pizza</span><span class="out-val c-amb" id="ao2">34% food cost</span></div>
+        <div class="out-row"><span class="out-name">Caesar salad</span><span class="out-val c-grn" id="ao3">22% food cost</span></div>
+        <div class="risk-badge risk-ok" id="abadge">OPTIMAL — Margins within target range</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="sec-label">Experience</div>
+  <div class="sec-title">14 years across AI research, finance &amp; compliance</div>
+  <div class="tl-item"><div class="tl-date">2025–present</div><div><div class="tl-title">Graduate Researcher — M.S. Computer Science (AI)</div><div class="tl-org">Westcliff University, San Francisco</div><div class="tl-desc">Developing V.E.T. and A.C.E. AI frameworks. IBM Cybersecurity Analyst Professional Certificate (8 courses).</div><div class="tl-hl">MIS510: 99/100 · Top 1% cohort · MIS520: 97%</div></div></div>
+  <div class="tl-item"><div class="tl-date">2022–2024</div><div><div class="tl-title">International Customer Service</div><div class="tl-org">The Hut Group (THG), UK</div><div class="tl-desc">Managed cross-cultural customer operations spanning UK, EU, and Southeast Asia markets on the Lookfantastic platform. Multi-region escalations, international compliance requirements, and cross-functional coordination across global teams.</div></div></div>
+  <div class="tl-item"><div class="tl-date">2021–2022</div><div><div class="tl-title">MSc Financial Technology</div><div class="tl-org">University of the West of England, Bristol</div><div class="tl-desc">Scholarship recipient · FinTech, Blockchain &amp; Big Data. Academic focus: Data Science (Python), Big Data Analytics, FinTech environment. Group project: Cryptocurrency Statistical Arbitrage System.</div></div></div>
+  <div class="tl-item"><div class="tl-date">2016–2017</div><div><div class="tl-title">Finance Manager</div><div class="tl-org">ASUSTeK Computer (Thailand) Co., Ltd</div><div class="tl-desc">Financial reporting and forecasting models. Improved budget accuracy by 15%; reduced report generation time by 30% through process automation.</div></div></div>
+  <div class="tl-item"><div class="tl-date">2012–2016</div><div><div class="tl-title">Senior Financial Analyst / Internal Auditor</div><div class="tl-org">YLG Bullion Group · Thailand / Singapore / Malaysia</div><div class="tl-desc">Financial analysis, internal audit, and cross-border entity due diligence across a multi-jurisdictional bullion trading organization.</div></div></div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="sec-label">Skills &amp; Certifications</div>
+  <div class="sec-title">Technical toolkit &amp; credentials</div>
+  <div class="skills-grid">
     <div>
-      <div class="stat-num">14</div>
-      <div class="stat-label">Years financial experience</div>
+      <div class="sg-title">Technical stack</div>
+      <div class="tags"><span class="tag">Python</span><span class="tag">Machine Learning</span><span class="tag">NLP</span><span class="tag">XGBoost</span><span class="tag">NetworkX</span><span class="tag">FastAPI</span><span class="tag">SQL</span><span class="tag">Tableau</span><span class="tag">Power BI</span><span class="tag">AWS Cloud</span><span class="tag">Google Cloud</span><span class="tag">ISO 27002</span><span class="tag">Entity resolution</span><span class="tag">AI-OCR</span></div>
     </div>
     <div>
-      <div class="stat-num">2</div>
-      <div class="stat-label">Published working papers</div>
-    </div>
-    <div>
-      <div class="stat-num">2</div>
-      <div class="stat-label">Open-source repositories</div>
-    </div>
-    <div>
-      <div class="stat-num">$1.1T</div>
-      <div class="stat-label">Sector addressed by A.C.E.</div>
-    </div>
-  </div>
-</section>
-
-<!-- ── DEMOS ── -->
-<section class="section" id="demos">
-  <div class="section-head"><h2>Interactive demos</h2></div>
-
-  <!-- A.C.E. Demo -->
-  <div class="demo-card">
-    <div class="demo-header">
-      <div>
-        <div class="demo-name">A.C.E. — Restaurant Margin Analyzer</div>
-        <div class="demo-doi">DOI: 10.13140/RG.2.2.33391.60326</div>
-      </div>
-      <span class="tag tag-green">A.C.E. Live Demo</span>
-    </div>
-    <div class="demo-body">
-      <p style="font-size:13px;color:var(--muted);margin-bottom:1.25rem">
-        Adjust ingredient costs to see real-time impact on menu margins. Demonstrates 
-        the A.C.E. Dynamic Menu Engineering Engine — Layer 2 of the Intelligent Neural Network.
-      </p>
-      <div class="slider-group">
-        <div class="slider-row">
-          <label>Chicken breast ($/lb)</label>
-          <input type="range" min="3" max="12" step="0.5" value="4.5" id="chk">
-          <span class="val" id="chk-v">$4.50</span>
-        </div>
-        <div class="slider-row">
-          <label>Olive oil ($/gal)</label>
-          <input type="range" min="15" max="40" step="1" value="25" id="oil">
-          <span class="val" id="oil-v">$25</span>
-        </div>
-        <div class="slider-row">
-          <label>Produce basket ($/unit)</label>
-          <input type="range" min="10" max="35" step="1" value="19" id="prod">
-          <span class="val" id="prod-v">$19</span>
-        </div>
-      </div>
-      <div class="metric-grid">
-        <div class="metric">
-          <div class="metric-label">Grilled chicken</div>
-          <div class="metric-val" id="m1">--</div>
-          <div class="metric-sub">food cost %</div>
-        </div>
-        <div class="metric">
-          <div class="metric-label">Margherita pizza</div>
-          <div class="metric-val" id="m2">--</div>
-          <div class="metric-sub">food cost %</div>
-        </div>
-        <div class="metric">
-          <div class="metric-label">Caesar salad</div>
-          <div class="metric-val" id="m3">--</div>
-          <div class="metric-sub">food cost %</div>
-        </div>
-      </div>
-      <div id="ace-alert"></div>
-    </div>
-  </div>
-
-  <!-- V.E.T. Demo -->
-  <div class="demo-card">
-    <div class="demo-header">
-      <div>
-        <div class="demo-name">V.E.T. — Vendor Risk Scoring Engine</div>
-        <div class="demo-doi">DOI: 10.13140/RG.2.2.33961.76641</div>
-      </div>
-      <span class="tag tag-blue">V.E.T. Live Demo</span>
-    </div>
-    <div class="demo-body">
-      <p style="font-size:13px;color:var(--muted);margin-bottom:1.25rem">
-        Simulate multi-domain vendor risk scoring. Adjust sanctions proximity, ownership 
-        complexity, and geographic risk to see how V.E.T. generates composite risk tiers.
-      </p>
-      <div class="slider-group">
-        <div class="slider-row">
-          <label>Sanctions proximity (hops)</label>
-          <input type="range" min="0" max="5" step="1" value="0" id="sanc">
-          <span class="val" id="sanc-v">0</span>
-        </div>
-        <div class="slider-row">
-          <label>Ownership depth (layers)</label>
-          <input type="range" min="1" max="8" step="1" value="2" id="depth">
-          <span class="val" id="depth-v">2</span>
-        </div>
-        <div class="slider-row">
-          <label>Geographic risk index</label>
-          <input type="range" min="0" max="100" step="5" value="10" id="geo">
-          <span class="val" id="geo-v">10</span>
-        </div>
-      </div>
-      <div class="bar-list">
-        <div class="bar-item">
-          <div class="bar-meta"><span>Sanctions screening (45% weight)</span><span id="s1p">0%</span></div>
-          <div class="bar-bg"><div class="bar-fg" id="s1b" style="width:0%;background:#E24B4A"></div></div>
-        </div>
-        <div class="bar-item">
-          <div class="bar-meta"><span>Ownership complexity (25% weight)</span><span id="s2p">0%</span></div>
-          <div class="bar-bg"><div class="bar-fg" id="s2b" style="width:0%;background:#BA7517"></div></div>
-        </div>
-        <div class="bar-item">
-          <div class="bar-meta"><span>Geographic risk (30% weight)</span><span id="s3p">0%</span></div>
-          <div class="bar-bg"><div class="bar-fg" id="s3b" style="width:0%;background:#185FA5"></div></div>
-        </div>
-        <div class="bar-item">
-          <div class="bar-meta"><span>Composite risk score</span><span id="s4p">0%</span></div>
-          <div class="bar-bg"><div class="bar-fg" id="s4b" style="width:0%;background:#1D9E75"></div></div>
-        </div>
-      </div>
-      <div class="tier-display">
-        <div class="tier-pill" id="vet-pill" style="background:#E1F5EE;color:#085041">LOW</div>
-        <div class="tier-desc" id="vet-action">Standard procurement process</div>
+      <div class="sg-title">Certifications</div>
+      <div class="cert-list">
+        <div class="cert-row"><span class="cert-dot"></span>IBM Cybersecurity Analyst Professional (8 courses)</div>
+        <div class="cert-row"><span class="cert-dot"></span>IBM CompTIA Security+ &amp; CYSA+ Assessment</div>
+        <div class="cert-row"><span class="cert-dot"></span>Google Advanced Data Analytics</div>
+        <div class="cert-row"><span class="cert-dot"></span>Google Cloud Digital Leader</div>
+        <div class="cert-row"><span class="cert-dot"></span>AWS Cloud Practitioner</div>
+        <div class="cert-row"><span class="cert-dot"></span>Thai Fintech Association — Member</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── RESEARCH ── -->
-<section class="section" id="research">
-  <div class="section-head"><h2>Published research</h2></div>
-  <div class="pub-list">
-    <div class="pub-item">
-      <div class="pub-year">2026</div>
-      <div>
-        <div class="pub-title">V.E.T. — Vendor Entity Threat Detection: An AI-Powered Data Fusion Framework for Supply Chain Security</div>
-        <div class="pub-meta">DOI: 10.13140/RG.2.2.33961.76641 · ResearchGate · CC BY 4.0 · April 2026</div>
-        <div class="pub-tags">
-          <span class="tag tag-blue">Supply Chain Security</span>
-          <span class="tag tag-blue">EO 13873</span>
-          <span class="tag tag-blue">NIST SP 800-161</span>
-          <span class="tag tag-blue">FinCEN BOI</span>
-          <span class="tag tag-blue">Sanctions AI</span>
-        </div>
-      </div>
-    </div>
-    <div class="pub-item">
-      <div class="pub-year">2026</div>
-      <div>
-        <div class="pub-title">A.C.E. — AI Concierge & Engine: An AI-Driven Financial Intelligence Framework for U.S. SME Restaurant Resilience</div>
-        <div class="pub-meta">DOI: 10.13140/RG.2.2.33391.60326 · ResearchGate · CC BY 4.0 · April 2026</div>
-        <div class="pub-tags">
-          <span class="tag tag-green">Restaurant AI</span>
-          <span class="tag tag-green">SME Resilience</span>
-          <span class="tag tag-green">Invoice Automation</span>
-          <span class="tag tag-green">Dynamic Pricing</span>
-          <span class="tag tag-green">$1.1T Sector</span>
-        </div>
-      </div>
+<!-- CONTACT -->
+<section id="contact">
+  <div class="sec-label">Contact</div>
+  <div class="sec-title">Let's connect</div>
+  <div class="contact-inner">
+    <p>Open to CPT-eligible roles in AI, FinTech data analysis, and financial intelligence systems. Currently based in San Francisco, CA.</p>
+    <div class="contact-links">
+      <button class="c-link" onclick="window.location='mailto:arthunya@gmail.com'">Email Me</button>
+      <button class="c-link" onclick="window.open('https://www.linkedin.com/in/arthunya/')">LinkedIn</button>
+      <button class="c-link" onclick="window.open('https://github.com/arthunya')">GitHub</button>
+      <button class="c-link" onclick="window.open('https://www.researchgate.net/profile/Arthunya-Kanoklertwongse-2/research')">ResearchGate</button>
     </div>
   </div>
 </section>
-
-<!-- ── EXPERIENCE ── -->
-<section class="section" id="experience">
-  <div class="section-head"><h2>Experience</h2></div>
-  <div class="exp-list">
-    <div class="exp-item">
-      <div class="exp-date">2025 – present</div>
-      <div>
-        <div class="exp-role">Graduate Researcher — M.S. Computer Science (AI)</div>
-        <div class="exp-org">Westcliff University, San Francisco</div>
-        <div class="exp-desc">Developing V.E.T. and A.C.E. AI frameworks. MIS 510: 99/100 (top 1% of cohort). MIS 520: 97%. IBM Cybersecurity Analyst Professional Certificate (8 courses).</div>
-      </div>
-    </div>
-    <div class="exp-item">
-      <div class="exp-date">2022 – 2024</div>
-      <div>
-        <div class="exp-role">International Customer Service</div>
-        <div class="exp-org">The Hut Group (THG), UK</div>
-        <div class="exp-desc">Cross-cultural operations for international markets across UK, EU, and Southeast Asia on the Lookfantastic platform.</div>
-      </div>
-    </div>
-    <div class="exp-item">
-      <div class="exp-date">2021 – 2022</div>
-      <div>
-        <div class="exp-role">MSc Financial Technology (Merit)</div>
-        <div class="exp-org">University of the West of England, Bristol</div>
-        <div class="exp-desc">Academic merit scholarship. Coursework: Blockchain, Data Science (Python), Big Data Analytics, FinTech environment. Group project: Cryptocurrency Statistical Arbitrage System.</div>
-      </div>
-    </div>
-    <div class="exp-item">
-      <div class="exp-date">2016 – 2017</div>
-      <div>
-        <div class="exp-role">Finance Manager</div>
-        <div class="exp-org">ASUSTeK Computer (Thailand) Co., Ltd</div>
-        <div class="exp-desc">Financial reporting and analysis including ASP billing, CID/OOW reports, and management accounts. Developed forecasting models improving budget accuracy by 15%. Led process automation reducing report generation time by 30%.</div>
-      </div>
-    </div>
-    <div class="exp-item">
-      <div class="exp-date">2012 – 2016</div>
-      <div>
-        <div class="exp-role">Senior Financial Analyst / Internal Auditor</div>
-        <div class="exp-org">YLG Bullion Group (Thailand / Singapore / Malaysia)</div>
-        <div class="exp-desc">Financial analysis, internal audit, and cross-border entity due diligence across a multi-jurisdictional bullion trading organization.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── SKILLS ── -->
-<section class="section" id="skills">
-  <div class="section-head"><h2>Skills & certifications</h2></div>
-
-  <p style="font-size:12px;color:var(--muted);margin-bottom:1rem;text-transform:uppercase;letter-spacing:.06em">Technical</p>
-  <div class="skills-grid" style="margin-bottom:2rem">
-    <div class="skill-chip">Python</div>
-    <div class="skill-chip">Machine Learning</div>
-    <div class="skill-chip">NLP</div>
-    <div class="skill-chip">XGBoost</div>
-    <div class="skill-chip">NetworkX</div>
-    <div class="skill-chip">FastAPI</div>
-    <div class="skill-chip">SQL</div>
-    <div class="skill-chip">Tableau</div>
-    <div class="skill-chip">Power BI</div>
-    <div class="skill-chip">AI-OCR</div>
-    <div class="skill-chip">Time-series</div>
-    <div class="skill-chip">Entity resolution</div>
-    <div class="skill-chip">ISO 27002</div>
-    <div class="skill-chip">AWS Cloud</div>
-    <div class="skill-chip">Google Cloud</div>
-    <div class="skill-chip">VBA / Excel</div>
-  </div>
-
-  <p style="font-size:12px;color:var(--muted);margin-bottom:1rem;text-transform:uppercase;letter-spacing:.06em">Certifications</p>
-  <div class="cert-grid">
-    <div class="cert-card">
-      <div class="cert-issuer">IBM</div>
-      <div class="cert-name">Cybersecurity Analyst Professional Certificate (8 courses)</div>
-      <div class="cert-date">June 2024</div>
-    </div>
-    <div class="cert-card">
-      <div class="cert-issuer">IBM</div>
-      <div class="cert-name">CompTIA Security+ & CYSA+ Assessment</div>
-      <div class="cert-date">June 2024</div>
-    </div>
-    <div class="cert-card">
-      <div class="cert-issuer">Google</div>
-      <div class="cert-name">Advanced Data Analytics Professional Certificate</div>
-      <div class="cert-date">2024</div>
-    </div>
-    <div class="cert-card">
-      <div class="cert-issuer">Google</div>
-      <div class="cert-name">Cloud Digital Leader Training</div>
-      <div class="cert-date">2024</div>
-    </div>
-    <div class="cert-card">
-      <div class="cert-issuer">Amazon Web Services</div>
-      <div class="cert-name">Starting Your Career with AWS Cloud</div>
-      <div class="cert-date">2024</div>
-    </div>
-    <div class="cert-card">
-      <div class="cert-issuer">Thai Fintech Association</div>
-      <div class="cert-name">Member</div>
-      <div class="cert-date">2024 – present</div>
-    </div>
-  </div>
-</section>
-
-</main>
 
 <footer>
-  <p>Arthunya Kanoklertwongse · San Francisco, CA · 
-    <a href="mailto:arthunya@gmail.com">arthunya@gmail.com</a> · 
-    <a href="https://github.com/arthunya" target="_blank">GitHub</a> · 
+  <span class="f-name">Arthunya Kanoklertwongse · San Francisco, CA</span>
+  <div class="f-links">
+    <a href="https://github.com/arthunya" target="_blank">GitHub</a>
     <a href="https://www.linkedin.com/in/arthunya/" target="_blank">LinkedIn</a>
-  </p>
-  <p style="margin-top:6px;font-size:11px">Built with HTML/CSS/JS · Hosted on GitHub Pages</p>
+    <a href="https://www.researchgate.net/profile/Arthunya-Kanoklertwongse-2/research" target="_blank">ResearchGate</a>
+  </div>
 </footer>
 
 <script>
-function calcACE(){
-  const chk=parseFloat(document.getElementById('chk').value);
-  const oil=parseFloat(document.getElementById('oil').value);
-  const prod=parseFloat(document.getElementById('prod').value);
-  document.getElementById('chk-v').textContent='$'+chk.toFixed(2);
-  document.getElementById('oil-v').textContent='$'+oil;
-  document.getElementById('prod-v').textContent='$'+prod;
-  const m1=(chk*0.35+prod*0.04)/14.99;
-  const m2=(oil*0.02/4+prod*0.06)/16.99;
-  const m3=(prod*0.05+oil*0.015/4)/11.99;
-  function color(v){return v>0.38?'#A32D2D':v>0.32?'#BA7517':'#1D9E75'}
-  ['m1','m2','m3'].forEach((id,i)=>{
-    const v=[m1,m2,m3][i];
-    const el=document.getElementById(id);
-    el.textContent=(v*100).toFixed(1)+'%';
-    el.style.color=color(v);
+// ── MAP IMAGE SETUP ──
+// Replace MAP_URL with your actual image URL or './map.jpg'
+const MAP_URL = 'https://arthunya.github.io/map.jpg';
+
+const img = new Image();
+img.onload = () => {
+  document.getElementById('mapPlaceholder').style.display = 'none';
+  const c = document.getElementById('mapContainer');
+  document.getElementById('realMap').src = MAP_URL;
+  c.style.display = 'block';
+  initHotspots();
+};
+img.onerror = () => {/* placeholder stays visible */};
+img.src = MAP_URL;
+
+function initHotspots(){
+  const pairs=[['hs-sf','tt-sf'],['hs-uk','tt-uk'],['hs-my','tt-my'],['hs-sg','tt-sg'],['hs-th','tt-th']];
+  pairs.forEach(([hId,tId])=>{
+    const hs=document.getElementById(hId), tt=document.getElementById(tId);
+    if(!hs||!tt)return;
+    hs.addEventListener('mouseenter',()=>{
+      // position tooltip above hotspot
+      const hw=hs.parentElement.offsetWidth;
+      const hLeft=parseFloat(hs.style.left)/100*hw;
+      tt.style.left = Math.min(Math.max(hLeft-90,4), hw-200)+'px';
+      tt.style.top = (parseFloat(hs.style.top)/100*hs.parentElement.offsetHeight - 130)+'px';
+      tt.classList.add('show');
+    });
+    hs.addEventListener('mouseleave',()=>tt.classList.remove('show'));
   });
-  const alerts=[];
-  if(m1>0.32) alerts.push('Grilled chicken food cost above 32% — suggested price: $'+((chk*0.35+prod*0.04)/0.28).toFixed(2));
-  if(m2>0.32) alerts.push('Margherita pizza food cost above threshold');
-  if(m3>0.32) alerts.push('Caesar salad food cost above threshold');
-  const box=document.getElementById('ace-alert');
-  if(alerts.length){
-    box.innerHTML='<div class="alert alert-warn">A.C.E. pricing alert — '+alerts.join(' · ')+'<br><small style="opacity:.8">Advisory only — manager confirmation required before any price change</small></div>';
-  } else {
-    box.innerHTML='<div class="alert alert-ok">All menu items within acceptable food cost range (below 32% threshold)</div>';
-  }
 }
 
-function calcVET(){
-  const sanc=parseInt(document.getElementById('sanc').value);
-  const depth=parseInt(document.getElementById('depth').value);
-  const geo=parseInt(document.getElementById('geo').value);
-  document.getElementById('sanc-v').textContent=sanc;
-  document.getElementById('depth-v').textContent=depth;
-  document.getElementById('geo-v').textContent=geo;
-  const s1=sanc===0?0:Math.min(100,sanc*22);
-  const s2=Math.round(Math.min(100,(depth/8)*100));
-  const s3=geo;
-  const composite=Math.round(s1*0.45+s2*0.25+s3*0.30);
-  ['s1','s2','s3','s4'].forEach((id,i)=>{
-    const v=[s1,s2,s3,composite][i];
-    document.getElementById(id+'p').textContent=v+'%';
-    document.getElementById(id+'b').style.width=v+'%';
-  });
-  const tiers=[
-    {min:75,label:'CRITICAL',bg:'#FCEBEB',color:'#A32D2D',action:'Procurement hold — refer to legal and compliance immediately'},
-    {min:50,label:'HIGH',bg:'#FAEEDA',color:'#854F0B',action:'Escalate to compliance team before proceeding'},
-    {min:25,label:'MEDIUM',bg:'#E6F1FB',color:'#0C447C',action:'Enhanced due diligence recommended'},
-    {min:0,label:'LOW',bg:'#E1F5EE',color:'#085041',action:'Standard procurement process — no additional screening required'}
-  ];
-  const t=tiers.find(x=>composite>=x.min);
-  const pill=document.getElementById('vet-pill');
-  pill.textContent=t.label;
-  pill.style.background=t.bg;
-  pill.style.color=t.color;
-  document.getElementById('vet-action').textContent=t.action;
+// ── VET CALCULATOR ──
+function calcV(){
+  const h=+v1.value,o=+v2.value,g=+v3.value;
+  v1l.textContent=h+' hops'; v2l.textContent=o+' layers'; v3l.textContent=g;
+  const s=Math.round(Math.min(100,h/6*95+5));
+  const ow=Math.round(Math.min(100,o/8*90+10));
+  const tot=Math.round(s*.45+ow*.25+g*.30);
+  const col=v=>v>65?'c-red':v>40?'c-amb':'c-grn';
+  vo1.textContent=s+'%'; vo1.className='out-val '+col(s);
+  vo2.textContent=ow+'%'; vo2.className='out-val '+col(ow);
+  vo3.textContent=g+'%'; vo3.className='out-val '+col(g);
+  vot.textContent=tot+'%'; vot.className='out-val '+(tot>65?'c-red':tot>40?'c-amb':'c-grn');
+  if(tot>65){vbadge.textContent='HIGH RISK — Immediate escalation required';vbadge.className='risk-badge risk-hi';}
+  else if(tot>40){vbadge.textContent='ELEVATED RISK — Enhanced due diligence required';vbadge.className='risk-badge risk-hi';}
+  else{vbadge.textContent='LOW RISK — Standard procurement process';vbadge.className='risk-badge risk-ok';}
 }
 
-['chk','oil','prod'].forEach(id=>document.getElementById(id).addEventListener('input',calcACE));
-['sanc','depth','geo'].forEach(id=>document.getElementById(id).addEventListener('input',calcVET));
-calcACE();calcVET();
+// ── ACE CALCULATOR ──
+function calcA(){
+  const ch=+a1.value,ol=+a2.value,pr=+a3.value;
+  a1l.textContent='$'+ch.toFixed(2); a2l.textContent='$'+ol; a3l.textContent='$'+pr;
+  const c1=Math.round(Math.min(65,ch/4.5*28));
+  const c2=Math.round(Math.min(72,ol/25*30+pr/19*6));
+  const c3=Math.round(Math.min(58,pr/19*20+ch/4.5*3));
+  const col=v=>v>35?'c-red':v>28?'c-amb':'c-grn';
+  ao1.textContent=c1+'% food cost'; ao1.className='out-val '+col(c1);
+  ao2.textContent=c2+'% food cost'; ao2.className='out-val '+col(c2);
+  ao3.textContent=c3+'% food cost'; ao3.className='out-val '+col(c3);
+  const avg=(c1+c2+c3)/3;
+  if(avg>35){abadge.textContent='WARNING — Margins above target, review pricing';abadge.className='risk-badge risk-hi';}
+  else{abadge.textContent='OPTIMAL — Margins within target range';abadge.className='risk-badge risk-ok';}
+}
+calcV(); calcA();
+
+// shorthand refs
+const [v1,v2,v3,v1l,v2l,v3l,vo1,vo2,vo3,vot,vbadge]=
+  ['v1','v2','v3','v1l','v2l','v3l','vo1','vo2','vo3','vot','vbadge'].map(id=>document.getElementById(id));
+const [a1,a2,a3,a1l,a2l,a3l,ao1,ao2,ao3,abadge]=
+  ['a1','a2','a3','a1l','a2l','a3l','ao1','ao2','ao3','abadge'].map(id=>document.getElementById(id));
 </script>
 </body>
 </html>
