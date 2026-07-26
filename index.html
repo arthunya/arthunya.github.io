@@ -3,72 +3,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Arthunya Kanoklertwongse — AI Researcher &amp; FinTech Strategist</title>
-<!--
-  UX/UI CRITIQUE OF ORIGINAL (acted on in this redesign)
-  ────────────────────────────────────────────────────────────────────
-  1. Typographic hierarchy is flat. H1 is only 32px; section titles
-     22px. On a portfolio, the hero claim should anchor the page —
-     bumped to a fluid clamp(40px, 5vw, 68px) with tighter tracking.
-  2. Two competing visual languages clash: warm parchment hero, then
-     hard cut to dark blue tech sections. Resolved by carrying a single
-     warm-paper top + ink-bottom system with a deliberate seam.
-  3. "🇹🇭 🇸🇬 🇲🇾 🇬🇧 🇺🇸" emoji-as-pills in About is slop. Replaced
-     with a typeset country list using monospace ISO codes.
-  4. CTA stack is 4 buttons of equal weight → no clear primary action.
-     Reduced to one primary (Read research) + ghost links.
-  5. The "rare intersection" Venn is conceptually right but visually
-     three boxes mashed together. Rebuilt as an actual overlapping
-     two-circle composition with the intersection labelled.
-  6. Stats strip floats orphaned between hero and rare-intersection.
-     Folded INTO the hero footer where it belongs (proof under claim).
-  7. Demo cards use accent-color sliders and red/amber/green with no
-     colour-blind affordance. Added numeric values + state badges.
-  8. Timeline uses 100px fixed date column → on narrow viewports the
-     dates wrap awkwardly. Reflowed with grid-template-columns auto 1fr
-     and proper sticky-year groupings.
-  9. Nav has a marketing-style "F-1 · CPT Eligible" pill which reads
-     as defensive. Moved availability into hero context where it adds
-     signal rather than noise.
- 10. Hotspot tooltips overflow the right edge on small screens. Now
-     auto-flip and clamp to container bounds.
--->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  /* warm paper */
-  --paper:#f6ecdb;
-  --paper-2:#efe1c8;
-  --paper-ink:#1a1410;
-  --paper-muted:#6b5a45;
-  --paper-faint:#a08e72;
-  --paper-line:rgba(40,28,16,0.10);
-  /* deep ink */
-  --ink:#0d1117;
-  --ink-2:#141a23;
-  --ink-3:#1b232f;
-  --ink-text:#eef1f6;
-  --ink-muted:rgba(238,241,246,0.55);
-  --ink-faint:rgba(238,241,246,0.32);
+  --paper:#f6ecdb;--paper-2:#efe1c8;--paper-ink:#1a1410;--paper-muted:#6b5a45;
+  --paper-faint:#a08e72;--paper-line:rgba(40,28,16,0.10);
+  --ink:#0d1117;--ink-2:#141a23;--ink-3:#1b232f;--ink-text:#eef1f6;
+  --ink-muted:rgba(238,241,246,0.55);--ink-faint:rgba(238,241,246,0.32);
   --ink-line:rgba(255,255,255,0.08);
-  /* accents — shared chroma 0.13, lightness 0.62 */
-  --terra:oklch(0.62 0.13 35);
-  --terra-soft:oklch(0.62 0.13 35 / 0.14);
-  --moss:oklch(0.62 0.09 165);
-  --moss-soft:oklch(0.62 0.09 165 / 0.16);
+  --terra:oklch(0.62 0.13 35);--terra-soft:oklch(0.62 0.13 35 / 0.14);
+  --moss:oklch(0.62 0.09 165);--moss-soft:oklch(0.62 0.09 165 / 0.16);
   --sand:oklch(0.78 0.08 75);
-  /* type */
   --display:'Inter Tight','Inter',system-ui,sans-serif;
   --body:'Inter',system-ui,sans-serif;
   --mono:'JetBrains Mono',ui-monospace,monospace;
 }
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 body{font-family:var(--body);background:var(--paper);color:var(--paper-ink);line-height:1.55;font-size:15px}
-
-/* ─── NAV ─── */
 nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:14px 36px;background:rgba(246,236,219,0.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--paper-line)}
 .nav-logo{font-family:var(--display);font-size:15px;font-weight:600;letter-spacing:-0.01em;display:flex;align-items:center;gap:10px}
 .nav-logo::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--terra)}
@@ -77,8 +31,6 @@ nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-co
 .nav-links a:hover{color:var(--paper-ink)}
 .nav-cta{font-family:var(--mono);font-size:11px;color:var(--paper-ink);background:transparent;border:1px solid var(--paper-ink);padding:7px 14px;border-radius:999px;cursor:pointer;letter-spacing:0.02em;transition:background .15s,color .15s}
 .nav-cta:hover{background:var(--paper-ink);color:var(--paper)}
-
-/* ─── HERO ─── */
 #hero{background:linear-gradient(180deg,var(--paper) 0%,var(--paper-2) 100%);padding:72px 36px 56px;position:relative;overflow:hidden}
 .hero-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:center}
 .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:0.18em;color:var(--terra);text-transform:uppercase;display:flex;align-items:center;gap:10px;margin-bottom:22px}
@@ -99,11 +51,9 @@ nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-co
 .avail{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11.5px;color:var(--paper-muted);letter-spacing:0.02em}
 .avail-dot{width:7px;height:7px;border-radius:50%;background:#3a8b4a;box-shadow:0 0 0 4px rgba(58,139,74,0.18);animation:pulse 2.4s infinite}
 @keyframes pulse{0%,100%{box-shadow:0 0 0 4px rgba(58,139,74,0.18)}50%{box-shadow:0 0 0 7px rgba(58,139,74,0.06)}}
-
-/* MAP */
 @keyframes float{0%,100%{transform:translateY(0px)}50%{transform:translateY(-12px)}}
 .map-wrap{position:relative;border-radius:18px;box-shadow:0 20px 60px -20px rgba(40,28,16,0.30),0 2px 6px rgba(40,28,16,0.10);animation:float 4s ease-in-out infinite;will-change:transform}
-@media (prefers-reduced-motion:reduce){.map-wrap{animation:none}}
+@media(prefers-reduced-motion:reduce){.map-wrap{animation:none}}
 .map-wrap img{width:100%;display:block;border-radius:18px}
 .map-cap{position:absolute;left:14px;bottom:12px;font-family:var(--mono);font-size:10.5px;color:rgba(255,255,255,0.85);background:rgba(0,0,0,0.32);backdrop-filter:blur(6px);padding:5px 10px;border-radius:6px;letter-spacing:0.04em}
 .hs{position:absolute;width:26px;height:26px;transform:translate(-50%,-50%);cursor:pointer;z-index:10}
@@ -117,13 +67,9 @@ nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-co
 .tt-role{font-family:var(--mono);font-size:10.5px;color:var(--terra);margin:3px 0 1px;letter-spacing:0.02em}
 .tt-years{font-family:var(--mono);font-size:10px;color:var(--paper-faint);margin-bottom:6px}
 .tt-desc{font-size:11.5px;color:var(--paper-muted);line-height:1.5}
-
-/* hero stats — folded under the claim */
 .hero-stats{max-width:1180px;margin:48px auto 0;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--paper-line);padding-top:28px;gap:24px}
 .hs-cell .hs-n{font-family:var(--display);font-size:38px;font-weight:700;color:var(--paper-ink);letter-spacing:-0.03em;line-height:1}
 .hs-cell .hs-l{font-family:var(--mono);font-size:12.5px;font-weight:500;color:var(--paper-ink);text-transform:uppercase;letter-spacing:0.08em;margin-top:10px;opacity:0.85}
-
-/* ─── INK SECTIONS ─── */
 .ink{background:var(--ink);color:var(--ink-text)}
 .ink-section{padding:96px 36px;border-bottom:1px solid var(--ink-line)}
 .ink-inner{max-width:1180px;margin:0 auto}
@@ -131,31 +77,24 @@ nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-co
 .sec-num{font-family:var(--mono);font-size:11px;color:var(--ink-faint);letter-spacing:0.08em}
 .sec-title{font-family:var(--display);font-size:clamp(28px,3.4vw,40px);font-weight:600;color:var(--ink-text);letter-spacing:-0.02em;line-height:1.1;flex:1;text-wrap:balance}
 .sec-kicker{font-family:var(--mono);font-size:11px;color:var(--ink-muted);letter-spacing:0.04em;max-width:280px;line-height:1.6}
-
-/* RARE — venn redesigned */
 .venn{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-bottom:64px;position:relative;max-width:920px;height:340px}
 .v-circle{height:340px;border-radius:50%;display:flex;flex-direction:column;justify-content:center;padding:36px 56px;position:relative}
-.v-left{background:radial-gradient(circle at 70% 50%,oklch(0.62 0.13 35 / 0.18),oklch(0.62 0.13 35 / 0.04));border:1px solid oklch(0.62 0.13 35 / 0.35);margin-right:-22%;z-index:1}
-.v-right{background:radial-gradient(circle at 30% 50%,oklch(0.62 0.09 165 / 0.20),oklch(0.62 0.09 165 / 0.04));border:1px solid oklch(0.62 0.09 165 / 0.35);margin-left:-22%;z-index:1}
+.v-left{background:radial-gradient(circle at 70% 50%,oklch(0.62 0.13 35 / 0.18),oklch(0.62 0.13 35 / 0.04));border:1px solid oklch(0.62 0.13 35 / 0.35);margin-right:-22%;z-index:1;align-items:flex-start}
+.v-right{background:radial-gradient(circle at 30% 50%,oklch(0.62 0.09 165 / 0.20),oklch(0.62 0.09 165 / 0.04));border:1px solid oklch(0.62 0.09 165 / 0.35);margin-left:-22%;z-index:1;align-items:flex-end}
 .v-label{font-family:var(--mono);font-size:13px;font-weight:600;letter-spacing:0.09em;text-transform:uppercase;margin-bottom:14px}
-.v-left{align-items:flex-start}
-.v-right{align-items:flex-end}
 .v-left .v-label,.v-left .v-list{text-align:left;max-width:60%}
 .v-right .v-label,.v-right .v-list{text-align:right;max-width:60%}
 .v-left .v-label{color:var(--terra)}
 .v-right .v-label{color:var(--moss)}
 .v-list{font-size:14.5px;line-height:1.85;color:var(--ink-text);font-family:var(--body);font-weight:400}
-.v-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;z-index:3;width:180px;background:var(--ink);border:1px solid var(--ink-line);border-radius:50%;width:200px;height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;box-shadow:0 0 0 6px var(--ink)}
+.v-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;z-index:3;background:var(--ink);border:1px solid var(--ink-line);border-radius:50%;width:200px;height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;box-shadow:0 0 0 6px var(--ink)}
 .v-center .v-cap{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--sand);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:8px}
 .v-center .v-name{font-family:var(--display);font-size:28px;font-weight:700;color:var(--ink-text);letter-spacing:-0.015em;line-height:1.1;margin-bottom:10px}
 .v-center .v-meta{font-family:var(--mono);font-size:11.5px;color:var(--ink-muted);line-height:1.6}
-
 .rare-callouts{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:920px}
 .rc{padding:24px 22px;border:1px solid var(--ink-line);border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent)}
 .rc-n{font-family:var(--display);font-size:32px;font-weight:600;color:var(--sand);letter-spacing:-0.02em;line-height:1;margin-bottom:10px}
 .rc-l{font-size:12.5px;color:var(--ink-muted);line-height:1.55}
-
-/* ABOUT */
 .about-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:start}
 .about-prose p{font-size:15.5px;color:var(--ink-text);line-height:1.7;margin-bottom:18px;max-width:560px}
 .about-prose p+p{color:var(--ink-muted)}
@@ -172,8 +111,6 @@ nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-co
 .badge{font-family:var(--mono);font-size:10px;padding:4px 10px;border-radius:6px;letter-spacing:0.04em;white-space:nowrap;text-transform:uppercase}
 .badge-active{background:var(--moss-soft);color:var(--moss);border:1px solid oklch(0.62 0.09 165 / 0.3)}
 .badge-honor{background:var(--terra-soft);color:var(--terra);border:1px solid oklch(0.62 0.13 35 / 0.3)}
-
-/* RESEARCH */
 .r-list{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--ink-line)}
 .r-row{display:grid;grid-template-columns:auto 1fr auto;gap:32px;padding:32px 0;border-bottom:1px solid var(--ink-line);align-items:start;cursor:pointer;transition:padding-left .25s}
 .r-row:hover{padding-left:14px}
@@ -189,8 +126,6 @@ nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-co
 .r-link:hover{color:var(--ink-text);border-color:var(--ink-text)}
 .r-link-pri{color:var(--sand);border-color:oklch(0.78 0.08 75 / 0.4)}
 .r-link-pri:hover{color:var(--ink);background:var(--sand);border-color:var(--sand)}
-
-/* DEMO */
 .demo-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
 .demo-card{padding:28px;border:1px solid var(--ink-line);border-radius:14px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.005))}
 .dc-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
@@ -221,8 +156,9 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;bac
 .risk-hi{background:rgba(240,131,115,0.10);color:#f08373;border:1px solid rgba(240,131,115,0.25)}
 .risk-md{background:rgba(230,168,90,0.10);color:#e6a85a;border:1px solid rgba(230,168,90,0.25)}
 .risk-ok{background:rgba(125,200,144,0.10);color:#7dc890;border:1px solid rgba(125,200,144,0.25)}
-
-/* EXPERIENCE */
+.demo-footer{margin-top:14px;padding-top:14px;border-top:1px solid var(--ink-line);text-align:center}
+.demo-footer a{font-family:var(--mono);font-size:11px;color:var(--sand);text-decoration:none;letter-spacing:0.04em;display:inline-flex;align-items:center;gap:6px;transition:opacity .15s}
+.demo-footer a:hover{opacity:0.75}
 .tl{position:relative}
 .tl-row{display:grid;grid-template-columns:140px 1fr;gap:36px;padding:28px 0;border-bottom:1px solid var(--ink-line);position:relative}
 .tl-row:last-child{border-bottom:none}
@@ -234,8 +170,6 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;bac
 .tl-org-link:hover{border-bottom-color:var(--terra)}
 .tl-desc{font-size:13.5px;color:var(--ink-muted);line-height:1.65;max-width:680px}
 .tl-hl{font-family:var(--mono);font-size:11px;color:var(--moss);margin-top:10px;letter-spacing:0.02em}
-
-/* SKILLS */
 .skills-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:64px}
 .sg-head{font-family:var(--mono);font-size:11px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid var(--ink-line)}
 .tag-cloud{display:flex;flex-wrap:wrap;gap:8px}
@@ -245,8 +179,6 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;bac
 .cert-row{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:11px 0;border-bottom:1px solid var(--ink-line);font-size:13px;color:var(--ink-text)}
 .cert-row:last-child{border-bottom:none}
 .cert-issuer{font-family:var(--mono);font-size:10.5px;color:var(--ink-faint);letter-spacing:0.04em}
-
-/* CONTACT */
 #contact{padding:120px 36px}
 .contact-inner{max-width:780px;margin:0 auto;text-align:center}
 .contact-h{font-family:var(--display);font-size:clamp(44px,5.8vw,76px);font-weight:700;letter-spacing:-0.03em;line-height:1.02;margin-bottom:28px;color:var(--ink-text);text-wrap:balance}
@@ -257,18 +189,13 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;bac
 .c-link:hover{border-color:var(--ink-text);background:rgba(255,255,255,0.04)}
 .c-link.pri{background:var(--sand);color:var(--ink);border-color:var(--sand);font-weight:500}
 .c-link.pri:hover{background:oklch(0.82 0.08 75)}
-
 footer{padding:28px 36px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--ink-line);background:var(--ink);color:var(--ink-text)}
 .f-name{font-family:var(--mono);font-size:11px;color:var(--ink-faint);letter-spacing:0.04em}
 .f-links{display:flex;gap:22px}
 .f-links a{font-family:var(--mono);font-size:11px;color:var(--ink-faint);text-decoration:none;letter-spacing:0.04em;transition:color .15s}
 .f-links a:hover{color:var(--ink-text)}
-
-/* ─── GLOBAL MOBILE GUARDS ─── */
 html,body{overflow-x:hidden;max-width:100%}
 img{max-width:100%;height:auto}
-
-/* ─── HAMBURGER ─── */
 .nav-hamburger{display:none;background:transparent;border:none;cursor:pointer;width:44px;height:44px;align-items:center;justify-content:center;padding:0;color:var(--paper-ink);position:relative;z-index:201}
 .nav-hamburger span{display:block;width:22px;height:2px;background:var(--paper-ink);position:relative;transition:transform .2s,opacity .2s}
 .nav-hamburger span::before,.nav-hamburger span::after{content:"";position:absolute;left:0;width:22px;height:2px;background:var(--paper-ink);transition:transform .2s,top .2s}
@@ -277,8 +204,6 @@ img{max-width:100%;height:auto}
 body.menu-open .nav-hamburger span{background:transparent}
 body.menu-open .nav-hamburger span::before{top:0;transform:rotate(45deg)}
 body.menu-open .nav-hamburger span::after{top:0;transform:rotate(-45deg)}
-
-/* ─── TABLET (≤1023px) ─── */
 @media(max-width:1023px){
   nav{padding:12px 24px}
   #hero{padding:56px 24px 44px}
@@ -301,12 +226,8 @@ body.menu-open .nav-hamburger span::after{top:0;transform:rotate(-45deg)}
   .r-meta{width:auto}
   .r-actions{flex-direction:row;align-items:flex-start;flex-wrap:wrap}
 }
-
-/* ─── MOBILE (≤767px) ─── */
 @media(max-width:767px){
   body{font-size:16px;line-height:1.55}
-
-  /* NAV — hamburger only */
   nav{padding:12px 20px}
   .nav-logo{font-size:14px}
   .nav-hamburger{display:inline-flex}
@@ -317,8 +238,6 @@ body.menu-open .nav-hamburger span::after{top:0;transform:rotate(-45deg)}
   .nav-links a{font-size:22px;font-family:var(--display);font-weight:500;color:var(--paper-ink);padding:18px 0;width:100%;border-bottom:1px solid var(--paper-line);letter-spacing:-0.01em;min-height:44px;display:flex;align-items:center}
   .nav-links .nav-cta-m{display:flex;margin-top:24px;font-family:var(--mono);font-size:13px;background:var(--paper-ink);color:var(--paper);border:none;padding:14px 22px;border-radius:999px;text-decoration:none;width:auto;min-height:44px;align-items:center;justify-content:center;letter-spacing:0.02em}
   .nav-links .nav-cta-m:hover{color:var(--paper)}
-
-  /* HERO */
   #hero{padding:32px 20px 40px}
   .hero-grid{gap:32px;max-width:100%}
   .eyebrow{font-size:10.5px;margin-bottom:16px;letter-spacing:0.14em}
@@ -331,20 +250,14 @@ body.menu-open .nav-hamburger span::after{top:0;transform:rotate(-45deg)}
   .map-wrap{max-width:100%;border-radius:14px}
   .map-wrap img{border-radius:14px}
   .tt{width:min(220px,calc(100vw - 60px))}
-
-  /* HERO STATS — 2x2 */
   .hero-stats{grid-template-columns:repeat(2,1fr);gap:24px 16px;margin-top:36px;padding-top:24px}
   .hs-cell .hs-n{font-size:30px}
   .hs-cell .hs-l{font-size:10.5px;letter-spacing:0.06em;margin-top:6px}
-
-  /* INK SECTIONS */
   .ink-section{padding:56px 20px}
   .sec-head{margin-bottom:32px;gap:14px}
   .sec-num{font-size:10.5px}
   .sec-title{font-size:clamp(24px,6vw,30px)}
   .sec-kicker{font-size:11px;max-width:100%}
-
-  /* VENN */
   .venn{max-width:100%;margin:0 0 40px}
   .v-circle{padding:22px 22px;border-radius:14px}
   .v-label{font-size:11.5px;margin-bottom:10px}
@@ -352,14 +265,10 @@ body.menu-open .nav-hamburger span::after{top:0;transform:rotate(-45deg)}
   .v-center{max-width:100%;flex-direction:column;gap:4px;padding:14px 22px;border-radius:14px;text-align:center}
   .v-center .v-cap{font-size:9.5px;letter-spacing:0.12em;margin-bottom:2px}
   .v-center .v-name{font-size:18px;letter-spacing:-0.01em}
-
-  /* RARE CALLOUTS */
   .rare-callouts{grid-template-columns:1fr;gap:12px;max-width:100%}
   .rc{padding:20px 18px}
   .rc-n{font-size:26px;margin-bottom:8px}
   .rc-l{font-size:13px}
-
-  /* ABOUT */
   .about-grid{gap:32px}
   .about-prose p{font-size:15px;max-width:100%}
   .geo-line{font-size:10.5px;gap:10px;margin-top:18px}
@@ -367,8 +276,6 @@ body.menu-open .nav-hamburger span::after{top:0;transform:rotate(-45deg)}
   .cred-name{font-size:14px;line-height:1.35}
   .cred-sub{font-size:11.5px;line-height:1.5}
   .badge{align-self:flex-start}
-
-  /* RESEARCH */
   .r-row{grid-template-columns:1fr;gap:12px;padding:24px 0}
   .r-row:hover{padding-left:0}
   .r-meta{font-size:10.5px;width:auto;line-height:1.6}
@@ -378,8 +285,6 @@ body.menu-open .nav-hamburger span::after{top:0;transform:rotate(-45deg)}
   .r-tag{font-size:10.5px;padding:4px 9px}
   .r-actions{flex-direction:column;align-items:stretch;gap:8px;margin-top:4px}
   .r-link{width:100%;text-align:center;min-height:44px;padding:11px 14px;font-size:12px;display:inline-flex;align-items:center;justify-content:center}
-
-  /* DEMO */
   .demo-grid{gap:18px}
   .demo-card{padding:22px 20px;border-radius:12px}
   .dc-head{flex-wrap:wrap;gap:6px}
@@ -388,7 +293,6 @@ body.menu-open .nav-hamburger span::after{top:0;transform:rotate(-45deg)}
   .s-row{margin-bottom:18px;padding:6px 0}
   .s-label{font-size:13px;margin-bottom:10px}
   .s-label .s-v{font-size:12px;padding:3px 9px}
-  /* touch-friendly slider — taller hit area */
   input[type=range]{height:44px;background:transparent;padding:0}
   input[type=range]::-webkit-slider-runnable-track{height:6px;background:rgba(255,255,255,0.08);border-radius:4px}
   input[type=range]::-moz-range-track{height:6px;background:rgba(255,255,255,0.08);border-radius:4px}
@@ -397,8 +301,6 @@ body.menu-open .nav-hamburger span::after{top:0;transform:rotate(-45deg)}
   .o-row{font-size:13.5px;padding:9px 0}
   .o-row.total .o-val{font-size:15px}
   .risk{font-size:11px;padding:11px 14px;flex-wrap:wrap;gap:4px}
-
-  /* EXPERIENCE TIMELINE — date above title */
   .tl-row{grid-template-columns:1fr;gap:6px;padding:22px 0}
   .tl-row::before{display:none}
   .tl-date{font-size:10.5px;padding-top:0;color:var(--sand);letter-spacing:0.06em}
@@ -406,61 +308,35 @@ body.menu-open .nav-hamburger span::after{top:0;transform:rotate(-45deg)}
   .tl-org{font-size:11.5px;margin-bottom:8px;line-height:1.5}
   .tl-desc{font-size:13.5px;max-width:100%;line-height:1.6}
   .tl-hl{font-size:11px;line-height:1.6}
-
-  /* SKILLS / CERTS */
   .skills-grid{gap:36px}
   .tag-cloud{gap:6px}
   .tag{font-size:12px;padding:7px 12px;min-height:32px;display:inline-flex;align-items:center}
   .cert-row{grid-template-columns:1fr;gap:2px;padding:12px 0;font-size:13px}
   .cert-row span:nth-child(2){display:none}
   .cert-issuer{font-size:10.5px}
-
-  /* CONTACT */
   #contact{padding:64px 20px}
   .contact-h{font-size:clamp(24px,7vw,32px);line-height:1.08;margin-bottom:20px}
   .contact-sub{font-size:14.5px;margin-bottom:28px}
   .contact-links{flex-direction:column;gap:10px;align-items:stretch}
   .c-link{width:100%;min-height:48px;padding:14px 22px;font-size:14.5px;text-align:center;display:inline-flex;align-items:center;justify-content:center}
-
   footer{flex-direction:column;gap:14px;text-align:center;padding:22px 20px}
   .f-links{gap:18px;flex-wrap:wrap;justify-content:center}
-}
-
-/* ─── MOBILE REFINEMENTS (≤767px) ─── */
-@media(max-width:767px){
-  /* Larger touch targets for map hotspots */
   .hs{width:40px;height:40px}
   .hs-dot{width:13px;height:13px;border-width:3px}
-  /* Tooltips: tappable, auto-position handled by JS */
   .tt{width:min(240px,calc(100vw - 56px));font-size:12px;pointer-events:auto}
   .tt-desc{font-size:12px}
-  /* Map caption smaller */
   .map-cap{font-size:9.5px;padding:4px 8px}
-
-  /* Hero map: cap height so it doesn't dominate the fold */
   .map-wrap{aspect-ratio:auto}
-
-  /* Demo cards: prevent slider value labels from overflowing on narrow screens */
   .s-label{flex-wrap:wrap;gap:4px}
   .o-row{flex-wrap:wrap;gap:6px}
   .o-name{flex:1 1 auto;min-width:0}
-
-  /* Research action buttons: 2-up grid instead of stacked column (less scroll) */
   .r-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;width:100%}
   .r-link{width:auto;text-align:center}
   .r-link-pri{grid-column:1 / -1}
-
-  /* Contact email button — make sure it's prominent */
   .c-link.pri{font-weight:600}
-
-  /* Avoid horizontal scroll caused by absolute hotspot rings overflowing */
   #mapContainer{overflow:hidden;border-radius:14px}
-
-  /* Smaller H1 leading so it doesn't look top-heavy at narrow widths */
   .hero-h1{line-height:1.04}
 }
-
-/* ─── EXTRA-SMALL (≤374px, iPhone SE) ─── */
 @media(max-width:374px){
   #hero,.ink-section,#contact{padding-left:16px;padding-right:16px}
   .hero-h1{font-size:28px}
@@ -474,7 +350,6 @@ body.menu-open .nav-hamburger span::after{top:0;transform:rotate(-45deg)}
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <span class="nav-logo">Arthunya Kanoklertwongse</span>
   <div class="nav-links" id="navLinks">
@@ -490,18 +365,17 @@ body.menu-open .nav-hamburger span::after{top:0;transform:rotate(-45deg)}
 </nav>
 <script>
 function toggleMenu(){
-  const open = document.body.classList.toggle('menu-open');
-  const btn = document.querySelector('.nav-hamburger');
-  if(btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-  const cta = document.querySelector('.nav-cta-m');
-  if(cta) cta.style.display = open ? 'inline-flex' : 'none';
+  const open=document.body.classList.toggle('menu-open');
+  const btn=document.querySelector('.nav-hamburger');
+  if(btn)btn.setAttribute('aria-expanded',open?'true':'false');
+  const cta=document.querySelector('.nav-cta-m');
+  if(cta)cta.style.display=open?'inline-flex':'none';
 }
 function closeMenu(){
-  if(document.body.classList.contains('menu-open')) toggleMenu();
+  if(document.body.classList.contains('menu-open'))toggleMenu();
 }
 </script>
 
-<!-- HERO -->
 <section id="hero">
   <div class="hero-grid">
     <div>
@@ -517,17 +391,13 @@ function closeMenu(){
       </div>
       <div class="avail"><span class="avail-dot"></span>Open to CPT-eligible roles · San Jose</div>
     </div>
-
-    <!-- MAP -->
     <div class="map-wrap">
       <div id="mapContainer" style="position:relative">
         <img id="realMap" src="map.jpg" alt="Career journey across five countries">
         <div class="map-cap">14 yrs · 5 countries</div>
-
         <div class="hs" style="left:13%;top:42%;color:#e03020"><div class="hs-ring"></div><div class="hs-dot"></div></div>
         <div class="hs" style="left:48%;top:28%;color:#d8a830"><div class="hs-ring" style="animation-delay:.5s"></div><div class="hs-dot"></div></div>
         <div class="hs" style="left:88%;top:34%;color:#e08828"><div class="hs-ring" style="animation-delay:1s"></div><div class="hs-dot"></div></div>
-
         <div class="tt" data-for="0">
           <div class="tt-flag">🇺🇸</div>
           <div class="tt-country">San Francisco, USA</div>
@@ -552,8 +422,6 @@ function closeMenu(){
       </div>
     </div>
   </div>
-
-  <!-- proof under claim -->
   <div class="hero-stats">
     <div class="hs-cell"><div class="hs-n">14</div><div class="hs-l">Years experience</div></div>
     <div class="hs-cell"><div class="hs-n">5</div><div class="hs-l">Countries</div></div>
@@ -562,10 +430,8 @@ function closeMenu(){
   </div>
 </section>
 
-<!-- INK STARTS -->
 <div class="ink">
 
-  <!-- RARE -->
   <section id="rare" class="ink-section">
     <div class="ink-inner">
       <div class="sec-head">
@@ -573,7 +439,6 @@ function closeMenu(){
         <h2 class="sec-title">The combination that makes AI work in financial risk.</h2>
         <p class="sec-kicker">Domain fluency on one side, model fluency on the other — and the experience to know where they fail.</p>
       </div>
-
       <div class="venn">
         <div class="v-circle v-left">
           <div class="v-label">Finance &amp; Compliance</div>
@@ -589,16 +454,14 @@ function closeMenu(){
           <div class="v-meta">14 yrs · 5 countries<br>2 AI frameworks<br>Published research</div>
         </div>
       </div>
-
       <div class="rare-callouts">
-        <div class="rc-l" style="font-size:14px;color:var(--ink-text)">Among a small cohort of AI researchers with hands-on KYC/AML compliance experience.</div>
+        <div class="rc"><div class="rc-l" style="font-size:14px;color:var(--ink-text)">Among a small cohort of AI researchers with hands-on KYC/AML compliance experience.</div></div>
         <div class="rc"><div class="rc-n">5</div><div class="rc-l">Countries of professional operation — TH, SG, MY, UK, US.</div></div>
         <div class="rc"><div class="rc-n">2</div><div class="rc-l">Published AI frameworks aligned with U.S. national policy (EO 13873, NIST).</div></div>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT -->
   <section id="about" class="ink-section">
     <div class="ink-inner">
       <div class="sec-head">
@@ -641,7 +504,6 @@ function closeMenu(){
     </div>
   </section>
 
-  <!-- RESEARCH -->
   <section id="research" class="ink-section">
     <div class="ink-inner">
       <div class="sec-head">
@@ -649,8 +511,8 @@ function closeMenu(){
         <h2 class="sec-title">Open-source AI frameworks.</h2>
         <p class="sec-kicker">Two open-access preprints addressing U.S. supply-chain security and SME resilience.</p>
       </div>
-
       <div class="r-list">
+        <!-- V.E.T. — UPDATED description + Dashboard button -->
         <div class="r-row" onclick="window.open('https://www.researchgate.net/profile/Arthunya-Kanoklertwongse-2/research')">
           <div class="r-meta">
             <span class="r-meta-y">Apr 2026</span>
@@ -658,23 +520,26 @@ function closeMenu(){
           </div>
           <div class="r-body">
             <div class="r-title">V.E.T. — Vendor Entity Threat Detection: an AI-powered data-fusion framework for U.S. supply-chain security</div>
-            <div class="r-desc">A multi-source entity-resolution pipeline combining sanctions screening, ownership-graph traversal, and geographic risk scoring — aligned with EO 13873 and NIST SP 800-161. Now also available on SSRN (Social Science Research Network).</div>
+            <div class="r-desc">A multi-source entity-resolution pipeline combining sanctions screening, ownership-graph traversal, geographic risk scoring, and financial health signals (SEC EDGAR XBRL) — aligned with EO 13873 and NIST SP 800-161. Phase-1 verified: precision 1.0 / recall 1.0 on benchmark v0 (33 entities). Also available on SSRN.</div>
             <div class="r-tags">
               <span class="r-tag policy">EO 13873</span>
               <span class="r-tag policy">NIST SP 800-161</span>
               <span class="r-tag policy">Multi-registry BOI</span>
               <span class="r-tag">Supply chain AI</span>
               <span class="r-tag">Sanctions screening</span>
+              <span class="r-tag">SEC EDGAR XBRL</span>
             </div>
           </div>
           <div class="r-actions">
-            <button class="r-link r-link-pri" onclick="event.stopPropagation();document.getElementById('demo').scrollIntoView({behavior:'smooth'})">Try demo ↓</button>
+            <button class="r-link r-link-pri" onclick="event.stopPropagation();window.open('https://arthunya.github.io/vet-vendor-threat-detection/dashboard/VET_Dashboard.html')">Live Dashboard ↗</button>
+            <button class="r-link" onclick="event.stopPropagation();document.getElementById('demo').scrollIntoView({behavior:'smooth'})">Try demo ↓</button>
             <button class="r-link" onclick="event.stopPropagation();window.open('https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6667278')">SSRN</button>
             <button class="r-link" onclick="event.stopPropagation();window.open('https://www.researchgate.net/publication/403672457_VET_-_Vendor_Entity_Threat_Detection_An_AI-Powered_Data_Fusion_Framework_for_Supply_Chain_Security')">ResearchGate</button>
             <button class="r-link" onclick="event.stopPropagation();window.open('https://github.com/arthunya/vet-vendor-threat-detection')">Repo</button>
           </div>
         </div>
 
+        <!-- A.C.E. -->
         <div class="r-row" onclick="window.open('https://www.researchgate.net/profile/Arthunya-Kanoklertwongse-2/research')">
           <div class="r-meta">
             <span class="r-meta-y">Apr 2026</span>
@@ -702,7 +567,6 @@ function closeMenu(){
     </div>
   </section>
 
-  <!-- DEMO -->
   <section id="demo" class="ink-section">
     <div class="ink-inner">
       <div class="sec-head">
@@ -710,8 +574,8 @@ function closeMenu(){
         <h2 class="sec-title">See the frameworks in action.</h2>
         <p class="sec-kicker">Live calculators backed by the same scoring logic described in each paper.</p>
       </div>
-
       <div class="demo-grid">
+        <!-- V.E.T. demo -->
         <div class="demo-card">
           <div class="dc-head">
             <div class="dc-title">V.E.T. Vendor Risk Scoring</div>
@@ -719,11 +583,9 @@ function closeMenu(){
           </div>
           <div class="dc-doi">DOI 10.13140/RG.2.2.33961.76641</div>
           <div class="demo-hint">← drag the sliders to explore</div>
-
           <div class="s-row"><div class="s-label"><span>Sanctions proximity</span><span class="s-v" id="v1l">3 hops</span></div><input type="range" min="0" max="6" value="3" id="v1" oninput="calcV()"></div>
           <div class="s-row"><div class="s-label"><span>Ownership depth</span><span class="s-v" id="v2l">4 layers</span></div><input type="range" min="1" max="8" value="4" id="v2" oninput="calcV()"></div>
           <div class="s-row"><div class="s-label"><span>Geographic risk index</span><span class="s-v" id="v3l">45</span></div><input type="range" min="0" max="100" value="45" id="v3" oninput="calcV()"></div>
-
           <div class="dc-out">
             <div class="o-row" id="vor1"><span class="o-name">Sanctions screening · 45%</span><span class="o-val c-amb" id="vo1"><span class="o-pip"></span>62%</span></div>
             <div class="o-row" id="vor2"><span class="o-name">Ownership complexity · 25%</span><span class="o-val c-red" id="vo2"><span class="o-pip"></span>78%</span></div>
@@ -731,8 +593,13 @@ function closeMenu(){
             <div class="o-row total"><span class="o-name">Composite score</span><span class="o-val c-amb" id="vot">60%</span></div>
             <div class="risk risk-md" id="vbadge"><span>ELEVATED RISK</span><span>Enhanced due diligence</span></div>
           </div>
+          <!-- Live Dashboard link -->
+          <div class="demo-footer">
+            <a href="https://arthunya.github.io/vet-vendor-threat-detection/dashboard/VET_Dashboard.html" target="_blank">Try the full dashboard — 1,261 real companies ↗</a>
+          </div>
         </div>
 
+        <!-- A.C.E. demo -->
         <div class="demo-card">
           <div class="dc-head">
             <div class="dc-title">A.C.E. Restaurant Margin Analyzer</div>
@@ -740,11 +607,9 @@ function closeMenu(){
           </div>
           <div class="dc-doi">DOI 10.13140/RG.2.2.33391.60326</div>
           <div class="demo-hint">← drag the sliders to explore</div>
-
           <div class="s-row"><div class="s-label"><span>Chicken breast / lb</span><span class="s-v" id="a1l">$4.50</span></div><input type="range" min="2" max="12" step="0.5" value="4.5" id="a1" oninput="calcA()"></div>
           <div class="s-row"><div class="s-label"><span>Olive oil / gal</span><span class="s-v" id="a2l">$25</span></div><input type="range" min="10" max="60" step="1" value="25" id="a2" oninput="calcA()"></div>
           <div class="s-row"><div class="s-label"><span>Produce basket</span><span class="s-v" id="a3l">$19</span></div><input type="range" min="8" max="40" step="1" value="19" id="a3" oninput="calcA()"></div>
-
           <div class="dc-out">
             <div class="o-row"><span class="o-name">Grilled chicken</span><span class="o-val c-grn" id="ao1"><span class="o-pip"></span>28% food cost</span></div>
             <div class="o-row"><span class="o-name">Margherita pizza</span><span class="o-val c-amb" id="ao2"><span class="o-pip"></span>34% food cost</span></div>
@@ -756,26 +621,23 @@ function closeMenu(){
     </div>
   </section>
 
-  <!-- EXPERIENCE -->
   <section id="experience" class="ink-section">
     <div class="ink-inner">
       <div class="sec-head">
         <span class="sec-num">05 / Experience</span>
         <h2 class="sec-title">Fourteen years across AI, finance &amp; compliance.</h2>
       </div>
-
       <div class="tl">
         <div class="tl-row"><div class="tl-date">2025 — present</div><div><div class="tl-title">Graduate Researcher · M.S. Computer Science (AI)</div><div class="tl-org"><a href="https://www.westcliff.edu/" target="_blank" rel="noopener noreferrer" class="tl-org-link">Westcliff University ↗</a> · San Francisco</div><div class="tl-desc">Developing the V.E.T. and A.C.E. AI frameworks. Completed IBM Cybersecurity Analyst Professional Certificate.</div><div class="tl-hl">→ Project Management (AI systems): 99/100 · top 1% cohort · Strategic Change with Technology: 97%</div></div></div>
         <div class="tl-row"><div class="tl-date">2022 — 2024</div><div><div class="tl-title">International Customer Service</div><div class="tl-org">The Hut Group (THG) · United Kingdom</div><div class="tl-desc">Cross-cultural customer operations spanning UK, EU, and Southeast Asia markets on the Lookfantastic platform — multi-region escalations, cross-functional global coordination.</div></div></div>
         <div class="tl-row"><div class="tl-date">2021 — 2022</div><div><div class="tl-title">MSc Financial Technology</div><div class="tl-org"><a href="https://www.uwe.ac.uk/" target="_blank" rel="noopener noreferrer" class="tl-org-link">University of the West of England ↗</a> · Bristol</div><div class="tl-desc">Scholarship recipient · FinTech, Blockchain &amp; Big Data. Data Science (Python), Big Data Analytics, FinTech environment.</div><div class="tl-hl">→ Group project: Cryptocurrency Statistical Arbitrage System.</div></div></div>
         <div class="tl-row"><div class="tl-date">2018 — 2019</div><div><div class="tl-title">Administrative Assistant · Student Worker</div><div class="tl-org">Intercultural Institute of California · San Francisco</div><div class="tl-desc">Student-worker role supporting administrative operations at IIC during U.S. studies.</div><div class="tl-hl">→ Digitized school administrative records — migrated manual bookkeeping and receipt systems to QuickSchools platform, improving operational efficiency.</div></div></div>
-        <<div class="tl-row"><div class="tl-date">2016 — 2017</div><div><div class="tl-title">Finance Manager</div><div class="tl-org">ASUSTeK Computer (Thailand) Co., Ltd</div><div class="tl-desc">Owned financial reporting and forecasting models.</div><div class="tl-hl">→ +15% budget accuracy · −30% report-generation time via process automation</div></div></div>
+        <div class="tl-row"><div class="tl-date">2016 — 2017</div><div><div class="tl-title">Finance Manager</div><div class="tl-org">ASUSTeK Computer (Thailand) Co., Ltd</div><div class="tl-desc">Owned financial reporting and forecasting models.</div><div class="tl-hl">→ +15% budget accuracy · −30% report-generation time via process automation</div></div></div>
         <div class="tl-row"><div class="tl-date">May 2010 — Sep 2015</div><div><div class="tl-title">Investment Consultant · Trade Finance &amp; Vendor Coordination</div><div class="tl-org">YLG Bullion Group · Bangkok, Thailand 🇹🇭</div><div class="tl-desc">TFEX-licensed Derivatives Investment Consultant; later coordinated trade finance and vendor relationships (banking counterparties, international bullion suppliers, secure logistics) supporting multi-jurisdictional operations across Thailand, Singapore, and Malaysia.</div></div></div>
       </div>
     </div>
   </section>
 
-  <!-- SKILLS -->
   <section id="skills" class="ink-section">
     <div class="ink-inner">
       <div class="sec-head">
@@ -806,14 +668,13 @@ function closeMenu(){
             <div class="cert-row"><span>IEEE Computational Intelligence Society · Active 2026</span><span></span><span class="cert-issuer">IEEE</span></div>
             <div class="cert-row"><span>IEEE Computer Society · Active 2026</span><span></span><span class="cert-issuer">IEEE</span></div>
             <div class="cert-row"><span>Fortinet Cybersecurity Certification — Fundamentals &amp; Associate levels (FCF/FCA, encompassing legacy NSE 1–3 equivalents), plus Introduction to the Threat Landscape 3.0 and Technical Introduction to Cybersecurity 3.0 · 2026</span><span></span><span class="cert-issuer">Fortinet</span></div>
-<div class="cert-row"><span>ISC2 Candidate · 2026</span><span></span><span class="cert-issuer">ISC2</span></div>
+            <div class="cert-row"><span>ISC2 Candidate · 2026</span><span></span><span class="cert-issuer">ISC2</span></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
   <section id="contact">
     <div class="contact-inner">
       <span class="sec-num">07 / Contact</span>
@@ -839,107 +700,82 @@ function closeMenu(){
     </div>
   </footer>
 
-</div><!-- /.ink -->
+</div>
 
 <script>
-/* ─── HOTSPOT TOOLTIPS (hover on desktop, tap on mobile) ─── */
 (function(){
-  const hsList = document.querySelectorAll('#mapContainer .hs');
-  const ttList = document.querySelectorAll('#mapContainer .tt');
-  const isTouch = window.matchMedia('(hover: none)').matches || 'ontouchstart' in window;
-
-  function place(hs, tt){
-    const container = hs.parentElement;
-    const cw = container.offsetWidth, ch = container.offsetHeight;
-    const left = parseFloat(hs.style.left)/100*cw;
-    const top  = parseFloat(hs.style.top)/100*ch;
-    // measure
-    tt.style.visibility='hidden';
-    tt.classList.add('show');
-    const ttW = tt.offsetWidth, ttH = tt.offsetHeight;
-    tt.classList.remove('show');
-    tt.style.visibility='';
-    // horizontal — keep inside container on mobile
-    const slop = isTouch ? 0 : 40;
-    let placeLeft = left - ttW/2;
-    placeLeft = Math.max(-slop, Math.min(placeLeft, cw - ttW + slop));
-    // vertical — prefer above; flip below if no room
-    let placeTop = top - ttH - 18;
-    if(placeTop < 4) placeTop = top + 24;
-    tt.style.left = placeLeft + 'px';
-    tt.style.top  = placeTop  + 'px';
+  const hsList=document.querySelectorAll('#mapContainer .hs');
+  const ttList=document.querySelectorAll('#mapContainer .tt');
+  const isTouch=window.matchMedia('(hover: none)').matches||'ontouchstart' in window;
+  function place(hs,tt){
+    const container=hs.parentElement;
+    const cw=container.offsetWidth,ch=container.offsetHeight;
+    const left=parseFloat(hs.style.left)/100*cw;
+    const top=parseFloat(hs.style.top)/100*ch;
+    tt.style.visibility='hidden';tt.classList.add('show');
+    const ttW=tt.offsetWidth,ttH=tt.offsetHeight;
+    tt.classList.remove('show');tt.style.visibility='';
+    const slop=isTouch?0:40;
+    let pl=left-ttW/2;
+    pl=Math.max(-slop,Math.min(pl,cw-ttW+slop));
+    let pt=top-ttH-18;
+    if(pt<4)pt=top+24;
+    tt.style.left=pl+'px';tt.style.top=pt+'px';
     tt.classList.add('show');
   }
-  function hideAll(){ ttList.forEach(t=>t.classList.remove('show')); }
-
+  function hideAll(){ttList.forEach(t=>t.classList.remove('show'));}
   hsList.forEach((hs,idx)=>{
-    const tt = ttList[idx]; if(!tt) return;
+    const tt=ttList[idx];if(!tt)return;
     if(isTouch){
-      hs.addEventListener('click', (e)=>{
+      hs.addEventListener('click',(e)=>{
         e.stopPropagation();
-        const wasOpen = tt.classList.contains('show');
+        const wasOpen=tt.classList.contains('show');
         hideAll();
-        if(!wasOpen) place(hs, tt);
+        if(!wasOpen)place(hs,tt);
       });
-    } else {
-      hs.addEventListener('mouseenter', ()=>place(hs, tt));
-      hs.addEventListener('mouseleave', ()=>tt.classList.remove('show'));
+    }else{
+      hs.addEventListener('mouseenter',()=>place(hs,tt));
+      hs.addEventListener('mouseleave',()=>tt.classList.remove('show'));
     }
   });
-  // Tap anywhere else closes tooltips on touch
   if(isTouch){
-    document.addEventListener('click', (e)=>{
-      if(!e.target.closest('.hs') && !e.target.closest('.tt')) hideAll();
+    document.addEventListener('click',(e)=>{
+      if(!e.target.closest('.hs')&&!e.target.closest('.tt'))hideAll();
     });
   }
 })();
 
-/* ─── V.E.T. CALCULATOR ─── */
-const $ = id => document.getElementById(id);
-function classFor(v){ return v>65?'c-red':v>40?'c-amb':'c-grn'; }
+const $=id=>document.getElementById(id);
+function classFor(v){return v>65?'c-red':v>40?'c-amb':'c-grn';}
 function calcV(){
-  const h=+$('v1').value, o=+$('v2').value, g=+$('v3').value;
-  $('v1l').textContent = h+' hops';
-  $('v2l').textContent = o+' layers';
-  $('v3l').textContent = g;
-  const s = Math.round(Math.min(100, h/6*95 + 5));
-  const ow = Math.round(Math.min(100, o/8*90 + 10));
-  const tot = Math.round(s*0.45 + ow*0.25 + g*0.30);
-  const apply = (id, v, suffix='%') => {
-    const el = $(id);
-    el.className = 'o-val '+classFor(v);
-    el.innerHTML = '<span class="o-pip"></span>'+v+suffix;
-  };
-  apply('vo1', s); apply('vo2', ow); apply('vo3', g);
-  const totEl = $('vot');
-  totEl.className = 'o-val '+classFor(tot);
-  totEl.textContent = tot+'%';
-  const b = $('vbadge');
-  if(tot>65){ b.className='risk risk-hi'; b.innerHTML='<span>HIGH RISK</span><span>Immediate escalation</span>'; }
-  else if(tot>40){ b.className='risk risk-md'; b.innerHTML='<span>ELEVATED RISK</span><span>Enhanced due diligence</span>'; }
-  else { b.className='risk risk-ok'; b.innerHTML='<span>LOW RISK</span><span>Standard procurement</span>'; }
+  const h=+$('v1').value,o=+$('v2').value,g=+$('v3').value;
+  $('v1l').textContent=h+' hops';$('v2l').textContent=o+' layers';$('v3l').textContent=g;
+  const s=Math.round(Math.min(100,h/6*95+5));
+  const ow=Math.round(Math.min(100,o/8*90+10));
+  const tot=Math.round(s*0.45+ow*0.25+g*0.30);
+  const apply=(id,v)=>{const el=$(id);el.className='o-val '+classFor(v);el.innerHTML='<span class="o-pip"></span>'+v+'%';};
+  apply('vo1',s);apply('vo2',ow);apply('vo3',g);
+  const totEl=$('vot');totEl.className='o-val '+classFor(tot);totEl.textContent=tot+'%';
+  const b=$('vbadge');
+  if(tot>65){b.className='risk risk-hi';b.innerHTML='<span>HIGH RISK</span><span>Immediate escalation</span>';}
+  else if(tot>40){b.className='risk risk-md';b.innerHTML='<span>ELEVATED RISK</span><span>Enhanced due diligence</span>';}
+  else{b.className='risk risk-ok';b.innerHTML='<span>LOW RISK</span><span>Standard procurement</span>';}
 }
-
-/* ─── A.C.E. CALCULATOR ─── */
 function calcA(){
-  const ch=+$('a1').value, ol=+$('a2').value, pr=+$('a3').value;
-  $('a1l').textContent='$'+ch.toFixed(2);
-  $('a2l').textContent='$'+ol;
-  $('a3l').textContent='$'+pr;
-  const c1 = Math.round(Math.min(65, ch/4.5*28));
-  const c2 = Math.round(Math.min(72, ol/25*30 + pr/19*6));
-  const c3 = Math.round(Math.min(58, pr/19*20 + ch/4.5*3));
-  const cls = v => v>35?'c-red':v>28?'c-amb':'c-grn';
-  const apply = (id,v) => { const el=$(id); el.className='o-val '+cls(v); el.innerHTML='<span class="o-pip"></span>'+v+'% food cost'; };
-  apply('ao1',c1); apply('ao2',c2); apply('ao3',c3);
-  const avg = (c1+c2+c3)/3;
-  const b = $('abadge');
-  if(avg>35){ b.className='risk risk-hi'; b.innerHTML='<span>WARNING</span><span>Margins above target</span>'; }
-  else if(avg>28){ b.className='risk risk-md'; b.innerHTML='<span>WATCH</span><span>Approaching target ceiling</span>'; }
-  else { b.className='risk risk-ok'; b.innerHTML='<span>OPTIMAL</span><span>Margins within target</span>'; }
+  const ch=+$('a1').value,ol=+$('a2').value,pr=+$('a3').value;
+  $('a1l').textContent='$'+ch.toFixed(2);$('a2l').textContent='$'+ol;$('a3l').textContent='$'+pr;
+  const c1=Math.round(Math.min(65,ch/4.5*28));
+  const c2=Math.round(Math.min(72,ol/25*30+pr/19*6));
+  const c3=Math.round(Math.min(58,pr/19*20+ch/4.5*3));
+  const cls=v=>v>35?'c-red':v>28?'c-amb':'c-grn';
+  const apply=(id,v)=>{const el=$(id);el.className='o-val '+cls(v);el.innerHTML='<span class="o-pip"></span>'+v+'% food cost';};
+  apply('ao1',c1);apply('ao2',c2);apply('ao3',c3);
+  const avg=(c1+c2+c3)/3;
+  const b=$('abadge');
+  if(avg>35){b.className='risk risk-hi';b.innerHTML='<span>WARNING</span><span>Margins above target</span>';}
+  else if(avg>28){b.className='risk risk-md';b.innerHTML='<span>WATCH</span><span>Approaching target ceiling</span>';}
+  else{b.className='risk risk-ok';b.innerHTML='<span>OPTIMAL</span><span>Margins within target</span>';}
 }
-calcV(); calcA();
+calcV();calcA();
 </script>
-
-
 </body></html>
