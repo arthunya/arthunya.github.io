@@ -48,9 +48,6 @@ nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-co
 .btn-pri:hover::after{transform:translateX(3px)}
 .btn-ghost{background:transparent;color:var(--paper-ink);border:1px solid rgba(26,20,16,0.18);padding:11px 18px}
 .btn-ghost:hover{border-color:var(--paper-ink)}
-.avail{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11.5px;color:var(--paper-muted);letter-spacing:0.02em}
-.avail-dot{width:7px;height:7px;border-radius:50%;background:#3a8b4a;box-shadow:0 0 0 4px rgba(58,139,74,0.18);animation:pulse 2.4s infinite}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 4px rgba(58,139,74,0.18)}50%{box-shadow:0 0 0 7px rgba(58,139,74,0.06)}}
 @keyframes float{0%,100%{transform:translateY(0px)}50%{transform:translateY(-12px)}}
 .map-wrap{position:relative;border-radius:18px;box-shadow:0 20px 60px -20px rgba(40,28,16,0.30),0 2px 6px rgba(40,28,16,0.10);animation:float 4s ease-in-out infinite;will-change:transform}
 @media(prefers-reduced-motion:reduce){.map-wrap{animation:none}}
@@ -246,7 +243,6 @@ body.menu-open .nav-hamburger span::after{top:0;transform:rotate(-45deg)}
   .hero-actions{flex-direction:column;align-items:stretch;gap:10px;margin-bottom:24px}
   .btn{width:100%;justify-content:center;min-height:48px;padding:14px 22px;font-size:15px;display:inline-flex;align-items:center}
   .btn-ghost{padding:13px 22px}
-  .avail{font-size:11px;flex-wrap:wrap;line-height:1.5}
   .map-wrap{max-width:100%;border-radius:14px}
   .map-wrap img{border-radius:14px}
   .tt{width:min(220px,calc(100vw - 60px))}
@@ -382,14 +378,13 @@ function closeMenu(){
       <div class="eyebrow">AI Researcher · FinTech Strategist</div>
       <h1 class="hero-h1">Where <em>financial intelligence</em> meets machine learning.</h1>
       <p class="hero-lead">
-        Most AI researchers have never read a sanctions list. Most compliance officers have never trained a model.
-        <strong>I've spent 14 years doing both — across five countries.</strong>
+        My work sits at the intersection of two fields that rarely overlap:
+        <strong>14 years of hands-on financial and vendor-risk practice across five countries, combined with graduate-level AI research applying that experience to machine learning systems.</strong>
       </p>
       <div class="hero-actions">
         <button class="btn btn-pri" onclick="document.getElementById('research').scrollIntoView({behavior:'smooth'})">Read the research</button>
         <button class="btn btn-ghost" onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">Try the demos</button>
       </div>
-      <div class="avail"><span class="avail-dot"></span>Open to CPT-eligible roles · San Jose</div>
     </div>
     <div class="map-wrap">
       <div id="mapContainer" style="position:relative">
@@ -415,7 +410,7 @@ function closeMenu(){
         <div class="tt" data-for="2">
           <div class="tt-flag">🇹🇭</div>
           <div class="tt-country">Bangkok, Thailand</div>
-          <div class="tt-role">Finance · Audit · KYC/AML</div>
+          <div class="tt-role">Finance · Audit · Vendor Risk</div>
           <div class="tt-years">2010 — 2017</div>
           <div class="tt-desc">Siam University (B.Acc., GPA 3.82) · ASUSTeK Finance Manager · YLG Bullion Investment Consultant / Trade Finance &amp; Vendor Coordination (TFEX-licensed; cross-border ops across TH, SG, MY).</div>
         </div>
@@ -426,8 +421,9 @@ function closeMenu(){
     <div class="hs-cell"><div class="hs-n">14</div><div class="hs-l">Years experience</div></div>
     <div class="hs-cell"><div class="hs-n">5</div><div class="hs-l">Countries</div></div>
     <div class="hs-cell"><div class="hs-n">2</div><div class="hs-l">Published frameworks</div></div>
-    <div class="hs-cell"><div class="hs-n">$1.1T</div><div class="hs-l">Sector addressed</div></div>
+    <div class="hs-cell"><div class="hs-n">$1.1T</div><div class="hs-l">Sector addressed<sup style="font-size:9px">1</sup></div></div>
   </div>
+  <p style="max-width:1180px;margin:10px auto 0;font-family:var(--mono);font-size:9.5px;color:var(--paper-faint);text-align:right">1. National Restaurant Association, 2025 State of the Restaurant Industry report.</p>
 </section>
 
 <div class="ink">
@@ -437,12 +433,12 @@ function closeMenu(){
       <div class="sec-head">
         <span class="sec-num">01 / Intersection</span>
         <h2 class="sec-title">The combination that makes AI work in financial risk.</h2>
-        <p class="sec-kicker">Domain fluency on one side, model fluency on the other — and the experience to know where they fail.</p>
+        <p class="sec-kicker">Financial and vendor-risk practice on one side, applied machine learning on the other.</p>
       </div>
       <div class="venn">
         <div class="v-circle v-left">
           <div class="v-label">Finance &amp; Compliance</div>
-          <div class="v-list">KYC / AML<br>Internal audit<br>Bullion trading<br>Multi-jurisdictional ops<br>Financial reporting<br>Budget forecasting</div>
+          <div class="v-list">Vendor &amp; counterparty risk<br>Internal audit<br>Bullion trading<br>Multi-jurisdictional ops<br>Financial reporting<br>Budget forecasting</div>
         </div>
         <div class="v-circle v-right">
           <div class="v-label">AI &amp; Technology</div>
@@ -455,7 +451,7 @@ function closeMenu(){
         </div>
       </div>
       <div class="rare-callouts">
-        <div class="rc"><div class="rc-l" style="font-size:14px;color:var(--ink-text)">Among a small cohort of AI researchers with hands-on KYC/AML compliance experience.</div></div>
+        <div class="rc"><div class="rc-l" style="font-size:14px;color:var(--ink-text)">Among a small cohort of AI researchers with hands-on multi-jurisdictional vendor and counterparty risk experience.</div></div>
         <div class="rc"><div class="rc-n">5</div><div class="rc-l">Countries of professional operation — TH, SG, MY, UK, US.</div></div>
         <div class="rc"><div class="rc-n">2</div><div class="rc-l">Published AI frameworks aligned with U.S. national policy (EO 13873, NIST).</div></div>
       </div>
@@ -520,7 +516,7 @@ function closeMenu(){
           </div>
           <div class="r-body">
             <div class="r-title">V.E.T. — Vendor Entity Threat Detection: an AI-powered data-fusion framework for U.S. supply-chain security</div>
-            <div class="r-desc">A multi-source entity-resolution pipeline combining sanctions screening, ownership-graph traversal, geographic risk scoring, and financial health signals (SEC EDGAR XBRL) — aligned with EO 13873 and NIST SP 800-161. Phase-1 verified: precision 1.0 / recall 1.0 on benchmark v0 (33 entities). Also available on SSRN.</div>
+            <div class="r-desc">A multi-source entity-resolution pipeline combining sanctions screening, ownership-graph traversal, geographic risk scoring, and financial health signals (SEC EDGAR XBRL) — aligned with EO 13873 and NIST SP 800-161. Data ingestion, entity resolution, and risk-scoring modules are implemented and runnable in the public repository; no accuracy figure is claimed pending a labeled benchmark. Also available on SSRN.</div>
             <div class="r-tags">
               <span class="r-tag policy">EO 13873</span>
               <span class="r-tag policy">NIST SP 800-161</span>
@@ -557,7 +553,8 @@ function closeMenu(){
             </div>
           </div>
           <div class="r-actions">
-            <button class="r-link r-link-pri" onclick="event.stopPropagation();document.getElementById('demo').scrollIntoView({behavior:'smooth'})">Try demo ↓</button>
+            <button class="r-link r-link-pri" onclick="event.stopPropagation();window.open('https://arthunya.github.io/ace-ai-concierge-engine/dashboard/ACE_Dashboard.html')">Live Dashboard ↗</button>
+            <button class="r-link" onclick="event.stopPropagation();document.getElementById('demo').scrollIntoView({behavior:'smooth'})">Try demo ↓</button>
             <button class="r-link" onclick="event.stopPropagation();window.open('https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6774983')">SSRN</button>
             <button class="r-link" onclick="event.stopPropagation();window.open('https://www.researchgate.net/publication/403792836_ACE_-_AI_Concierge_Engine_An_AI-Driven_Financial_Intelligence_Framework_for_US_SME_Restaurant_Resilience')">ResearchGate</button>
             <button class="r-link" onclick="event.stopPropagation();window.open('https://github.com/arthunya/ace-ai-concierge-engine')">Repo</button>
@@ -582,6 +579,7 @@ function closeMenu(){
             <div class="dc-tag">/ paper 1</div>
           </div>
           <div class="dc-doi">DOI 10.13140/RG.2.2.33961.76641</div>
+          <div style="font-family:var(--mono);font-size:10px;color:var(--ink-faint);margin-bottom:10px">Illustrative calculator only — not connected to live data or the production model.</div>
           <div class="demo-hint">← drag the sliders to explore</div>
           <div class="s-row"><div class="s-label"><span>Sanctions proximity</span><span class="s-v" id="v1l">3 hops</span></div><input type="range" min="0" max="6" value="3" id="v1" oninput="calcV()"></div>
           <div class="s-row"><div class="s-label"><span>Ownership depth</span><span class="s-v" id="v2l">4 layers</span></div><input type="range" min="1" max="8" value="4" id="v2" oninput="calcV()"></div>
@@ -606,6 +604,7 @@ function closeMenu(){
             <div class="dc-tag">/ paper 2</div>
           </div>
           <div class="dc-doi">DOI 10.13140/RG.2.2.33391.60326</div>
+          <div style="font-family:var(--mono);font-size:10px;color:var(--ink-faint);margin-bottom:10px">Illustrative calculator only — not connected to live data or the production model.</div>
           <div class="demo-hint">← drag the sliders to explore</div>
           <div class="s-row"><div class="s-label"><span>Chicken breast / lb</span><span class="s-v" id="a1l">$4.50</span></div><input type="range" min="2" max="12" step="0.5" value="4.5" id="a1" oninput="calcA()"></div>
           <div class="s-row"><div class="s-label"><span>Olive oil / gal</span><span class="s-v" id="a2l">$25</span></div><input type="range" min="10" max="60" step="1" value="25" id="a2" oninput="calcA()"></div>
@@ -615,6 +614,10 @@ function closeMenu(){
             <div class="o-row"><span class="o-name">Margherita pizza</span><span class="o-val c-amb" id="ao2"><span class="o-pip"></span>34% food cost</span></div>
             <div class="o-row"><span class="o-name">Caesar salad</span><span class="o-val c-grn" id="ao3"><span class="o-pip"></span>22% food cost</span></div>
             <div class="risk risk-ok" id="abadge"><span>OPTIMAL</span><span>Margins within target</span></div>
+          </div>
+          <!-- Live Dashboard link -->
+          <div class="demo-footer">
+            <a href="https://arthunya.github.io/ace-ai-concierge-engine/dashboard/ACE_Dashboard.html" target="_blank">Try the full dashboard — synthetic demo data ↗</a>
           </div>
         </div>
       </div>
@@ -631,7 +634,7 @@ function closeMenu(){
         <div class="tl-row"><div class="tl-date">2025 — present</div><div><div class="tl-title">Graduate Researcher · M.S. Computer Science (AI)</div><div class="tl-org"><a href="https://www.westcliff.edu/" target="_blank" rel="noopener noreferrer" class="tl-org-link">Westcliff University ↗</a> · San Francisco</div><div class="tl-desc">Developing the V.E.T. and A.C.E. AI frameworks. Completed IBM Cybersecurity Analyst Professional Certificate.</div><div class="tl-hl">→ Project Management (AI systems): 99/100 · top 1% cohort · Strategic Change with Technology: 97%</div></div></div>
         <div class="tl-row"><div class="tl-date">2022 — 2024</div><div><div class="tl-title">International Customer Service</div><div class="tl-org">The Hut Group (THG) · United Kingdom</div><div class="tl-desc">Cross-cultural customer operations spanning UK, EU, and Southeast Asia markets on the Lookfantastic platform — multi-region escalations, cross-functional global coordination.</div></div></div>
         <div class="tl-row"><div class="tl-date">2021 — 2022</div><div><div class="tl-title">MSc Financial Technology</div><div class="tl-org"><a href="https://www.uwe.ac.uk/" target="_blank" rel="noopener noreferrer" class="tl-org-link">University of the West of England ↗</a> · Bristol</div><div class="tl-desc">Scholarship recipient · FinTech, Blockchain &amp; Big Data. Data Science (Python), Big Data Analytics, FinTech environment.</div><div class="tl-hl">→ Group project: Cryptocurrency Statistical Arbitrage System.</div></div></div>
-        <div class="tl-row"><div class="tl-date">2018 — 2019</div><div><div class="tl-title">Administrative Assistant · Student Worker</div><div class="tl-org">Intercultural Institute of California · San Francisco</div><div class="tl-desc">Student-worker role supporting administrative operations at IIC during U.S. studies.</div><div class="tl-hl">→ Digitized school administrative records — migrated manual bookkeeping and receipt systems to QuickSchools platform, improving operational efficiency.</div></div></div>
+        <div class="tl-row"><div class="tl-date">2018 — 2019</div><div><div class="tl-title">Administrative Assistant · Student Worker</div><div class="tl-org">Intercultural Institute of California · San Francisco</div><div class="tl-desc">Student-worker role supporting administrative operations at IIC during U.S. studies.</div></div></div>
         <div class="tl-row"><div class="tl-date">2016 — 2017</div><div><div class="tl-title">Finance Manager</div><div class="tl-org">ASUSTeK Computer (Thailand) Co., Ltd</div><div class="tl-desc">Owned financial reporting and forecasting models.</div><div class="tl-hl">→ +15% budget accuracy · −30% report-generation time via process automation</div></div></div>
         <div class="tl-row"><div class="tl-date">May 2010 — Oct 2015</div><div><div class="tl-title">Investment Consultant · Trade Finance &amp; Vendor Coordination</div><div class="tl-org">YLG Bullion Group · Bangkok, Thailand 🇹🇭</div><div class="tl-desc">TFEX-licensed Derivatives Investment Consultant; later coordinated trade finance and vendor relationships (banking counterparties, international bullion suppliers, secure logistics) supporting multi-jurisdictional operations across Thailand, Singapore, and Malaysia.</div></div></div>
       </div>
@@ -678,8 +681,8 @@ function closeMenu(){
   <section id="contact">
     <div class="contact-inner">
       <span class="sec-num">07 / Contact</span>
-      <h2 class="contact-h" style="margin-top:18px">Building AI for systems that <em>can't afford to fail.</em></h2>
-      <p class="contact-sub">Open to CPT-eligible roles in AI, FinTech data analysis, and financial-intelligence systems. Currently based in San Francisco. ORCID iD: 0009-0000-3731-8918.</p>
+      <h2 class="contact-h" style="margin-top:18px">AI research grounded in <em>real-world financial practice.</em></h2>
+      <p class="contact-sub">Based in San Francisco. Continuing V.E.T. and A.C.E. as independent open-access research. ORCID iD: 0009-0000-3731-8918.</p>
       <div class="contact-links">
         <button class="c-link pri" onclick="window.location='mailto:arthunya@gmail.com'">Email me</button>
         <button class="c-link" onclick="window.open('https://www.linkedin.com/in/arthunya/')">LinkedIn</button>
